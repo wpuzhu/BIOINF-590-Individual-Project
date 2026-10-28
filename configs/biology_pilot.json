@@ -1,0 +1,41 @@
+{
+  "models": [
+    "mlp-tanh",
+    "mlp-relu",
+    "mlp-silu",
+    "kan-spline",
+    "kan-fourier",
+    "kan-rbf"
+  ],
+  "terms": 8,
+  "depths": [
+    1,
+    2
+  ],
+  "budgets": [
+    4096
+  ],
+  "n_train": 1000,
+  "noise": 0.05,
+  "learning_rates": [
+    0.003,
+    0.01
+  ],
+  "weight_decay": 0.0001,
+  "max_epochs": 300,
+  "check_every": 10,
+  "patience": 12,
+  "lr_patience": 3,
+  "min_delta": 0.001,
+  "budget_tolerance": 0.05,
+  "threads": 1,
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "datasets": [
+    "yeast",
+    "breast_cancer"
+  ]
+}

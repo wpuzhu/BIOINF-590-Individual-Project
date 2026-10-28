@@ -1,0 +1,8 @@
+{
+  "split_ids": {
+    "train": "57ba72e89dc8be36122efa4a90ffaaef1d2d464d08660104938c503d2d151ab1",
+    "val": "ed6c770738391332e1eafed77178c6e816edc203f13d0fb3468ba19bde955aaf",
+    "inside": "7fcedf38618e35609eb54db18f92c3756371c0ae1bcea741a440200120bac908",
+    "outside": "c7bf80ac80b7f7e8ccbf295ba2670f6ce7c6d0deb89b81f75abbb4674362b1d8"
+  }
+}

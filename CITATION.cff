@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Please cite the original dataset and method papers alongside this project."
+title: "BIOINF 590 Individual Project: KAN versus MLP"
+type: software
+authors:
+  - family-names: Wang
+    given-names: "Puzhu (Chris)"
+version: 0.1.0

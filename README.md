@@ -69,6 +69,14 @@ The full configs are provided for extension; their results are not claimed in th
 
 These are proposed mechanism-aligned follow-ups. The completed real-data benchmarks test biological classification; they do not validate periodicity or localized-response hypotheses. Protein localization classes should not be confused with local response curves.
 
+## Raw experiment records
+
+The complete per-run histories, split records, pilot results and all figures are in [results/records.zip](results/records.zip). Summary tables and the main learning curves are also browsable directly. Extract the records before inspecting raw run JSON or re-running the summary scripts:
+
+```bash
+python -m zipfile -e results/records.zip .
+```
+
 ## Files and reproducibility
 
 ```text

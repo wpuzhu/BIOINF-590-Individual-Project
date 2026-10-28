@@ -1,0 +1,43 @@
+{
+  "yeast": {
+    "url": "https://archive.ics.uci.edu/static/public/110/yeast.zip",
+    "files": {
+      "yeast.data": "7cf61776fc04f527f93bf57a327b863893a1225d82df02d457e8950173218258",
+      "yeast.names": "c0b2d0e8708c1d2484e898749ab13f46fdc797ac49844c6294108db57bcad19e"
+    },
+    "class_counts": {
+      "CYT": 463,
+      "ERL": 5,
+      "EXC": 35,
+      "ME1": 44,
+      "ME2": 51,
+      "ME3": 163,
+      "MIT": 244,
+      "NUC": 429,
+      "POX": 20,
+      "VAC": 30
+    },
+    "class_labels_in_encoded_order": [
+      "CYT",
+      "ERL",
+      "EXC",
+      "ME1",
+      "ME2",
+      "ME3",
+      "MIT",
+      "NUC",
+      "POX",
+      "VAC"
+    ]
+  },
+  "breast_cancer": {
+    "loader": "sklearn.datasets.load_breast_cancer",
+    "features_sha256": "6b202a2072f9a0385f405a8f8605b1b06f6f36ae6d23d9cd6cbbc0974a416bc7",
+    "labels_sha256": "1763c0f8cd3f454b9eda72031113884593bb382411c0cd511e3ec6e7ac85cddb",
+    "sklearn": "1.8.0",
+    "class_labels_in_encoded_order": [
+      "malignant",
+      "benign"
+    ]
+  }
+}
