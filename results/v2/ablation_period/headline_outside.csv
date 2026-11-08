@@ -1,0 +1,2 @@
+task,blocks,kan_wins,mean_log_ratio,ci_low,ci_high,kan_error,mlp_error
+circadian_liver_aligned,20,20,-0.814093688583918,-0.9383553066987282,-0.6728438773965375,1.5186025977134705,3.525880813598633

@@ -217,7 +217,7 @@ def sweep_figure(df, outdir):
             ax.errorbar(gg.n_train, gg["mean"], yerr=gg["std"], label=m, color=COLORS[m], marker="o", ms=3,
                         ls="-" if m.startswith("kan") else "--", capsize=2)
         ax.set_xscale("log"); ax.set_yscale("log"); ax.set_title(t); ax.set_xlabel("training samples")
-    np.atleast_1d(axes)[0].set_ylabel("inside RMSE (target SD units)")
+    np.atleast_1d(axes)[0].set_ylabel("inside error (noise-free RMSE)")
     np.atleast_1d(axes)[-1].legend(fontsize=7)
     fig.suptitle("Sample-size sweep (2 hidden layers, 1,024 parameters, 3 seeds)", fontsize=10)
     fig.tight_layout(); fig.savefig(outdir / "sample_size.png", dpi=160); plt.close(fig)

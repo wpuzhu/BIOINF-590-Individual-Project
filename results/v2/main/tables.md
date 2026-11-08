@@ -4,20 +4,20 @@ ratio = exp(mean log(KAN error / MLP error)); < 1 means KAN better. CI: bootstra
 
 | Task | Audited structure | Inside ratio (95% CI) | KAN wins | KAN / MLP inside error | Baseline mean / ridge | Outside ratio (95% CI) | KAN wins | KAN / MLP outside error | Baseline mean / ridge |
 |---|---|---|---:|---|---|---|---:|---|---|
-| linear | near-linear | 1.924 (1.610–2.298) | 0.0/20.0 | 0.010 / 0.005 | 0.551 / 0.002 | 14.992 (11.498–19.548) | 0.0/20.0 | 0.222 / 0.018 | 0.976 / 0.003 |
-| additive | nonlinear marginals; oscillatory marginal | 1.214 (1.050–1.384) | 4.0/20.0 | 0.013 / 0.011 | 0.747 / 0.469 | 1.893 (1.529–2.316) | 0.0/20.0 | 0.498 / 0.273 | 0.966 / 1.546 |
-| interaction | interaction | 1.532 (1.409–1.648) | 0.0/20.0 | 0.014 / 0.009 | 0.504 / 0.504 | 6.578 (6.011–7.199) | 0.0/20.0 | 0.624 / 0.096 | 1.437 / 1.437 |
-| waves | interaction | 0.652 (0.564–0.732) | 20.0/20.0 | 0.015 / 0.023 | 0.502 / 0.502 | 1.162 (0.994–1.345) | 5.0/20.0 | 0.382 / 0.330 | 0.504 / 0.505 |
-| radial | nonlinear marginals; interaction; single-extremum (bump/U) marginal | 0.697 (0.644–0.780) | 19.0/20.0 | 0.010 / 0.015 | 0.279 / 0.218 | 0.748 (0.625–0.873) | 15.0/20.0 | 0.068 / 0.087 | 0.006 / 0.213 |
-| kink | nonlinear marginals; interaction; threshold/saturation | 1.499 (1.377–1.632) | 1.0/20.0 | 0.014 / 0.009 | 0.499 / 0.236 | 5.935 (5.015–7.130) | 0.0/20.0 | 0.199 / 0.034 | 0.914 / 0.479 |
-| breast_cancer | weak interaction; single-extremum (bump/U) marginal; threshold/saturation | 1.471 (0.901–2.211) | 4.0/20.0 | 0.040 / 0.027 |  | — |  |  |  |
-| circadian_blood | nonlinear marginals; single-extremum (bump/U) marginal; 24 h rhythm in 100% of outputs (q<0.05) | 0.999 (0.997–1.001) | 9.0/20.0 | 1.011 / 1.012 | 1.092 / 1.061 (cosinor 0.999) | — |  |  |  |
-| circadian_liver | nonlinear marginals; weak interaction; oscillatory marginal; 24 h rhythm in 100% of outputs (q<0.05) | 1.026 (0.978–1.071) | 7.0/20.0 | 0.538 / 0.526 | 1.142 / 1.125 (cosinor 0.487) | 0.492 (0.465–0.531) | 20.0/20.0 | 1.545 / 3.219 | 1.258 / 1.256 (cosinor 0.663) |
-| diabetes | near-linear; threshold/saturation | 1.037 (0.999–1.065) | 5.0/20.0 | 0.728 / 0.702 | 0.957 / 0.696 | — |  |  |  |
-| drug_combo | nonlinear marginals; interaction; single-extremum (bump/U) marginal; threshold/saturation | 0.990 (0.946–1.025) | 22.0/48.0 | 0.598 / 0.600 | 0.954 / 0.756 | 1.036 (0.928–1.143) | 21.0/48.0 | 0.875 / 0.835 | 1.668 / 1.277 |
-| gb1_epistasis | weak interaction | 1.017 (1.007–1.026) | 2.0/20.0 | 0.305 / 0.300 | 0.999 / 0.360 | 1.226 (1.142–1.313) | 0.0/20.0 | 0.392 / 0.319 | 1.878 / 0.919 |
-| mpsa_splicing | interaction | 1.005 (0.996–1.014) | 8.0/20.0 | 0.597 / 0.594 | 0.954 / 0.864 | — |  |  |  |
-| yeast | near-linear; single-extremum (bump/U) marginal; threshold/saturation | 0.987 (0.918–1.050) | 10.0/20.0 | 0.475 / 0.480 |  | — |  |  |  |
+| linear | near-linear | 1.924 (1.610–2.298) | 0/20 | 0.010 / 0.005 | 0.551 / 0.002 | 14.992 (11.498–19.548) | 0/20 | 0.222 / 0.018 | 0.976 / 0.003 |
+| additive | nonlinear marginals; oscillatory marginal | 1.214 (1.050–1.384) | 4/20 | 0.013 / 0.011 | 0.747 / 0.469 | 1.893 (1.529–2.316) | 0/20 | 0.498 / 0.273 | 0.966 / 1.546 |
+| interaction | interaction | 1.532 (1.409–1.648) | 0/20 | 0.014 / 0.009 | 0.504 / 0.504 | 6.578 (6.011–7.199) | 0/20 | 0.624 / 0.096 | 1.437 / 1.437 |
+| waves | interaction | 0.652 (0.564–0.732) | 20/20 | 0.015 / 0.023 | 0.502 / 0.502 | 1.162 (0.994–1.345) | 5/20 | 0.382 / 0.330 | 0.504 / 0.505 |
+| radial | nonlinear marginals; interaction; single-extremum (bump/U) marginal | 0.697 (0.644–0.780) | 19/20 | 0.010 / 0.015 | 0.279 / 0.218 | 0.748 (0.625–0.873) | 15/20 | 0.068 / 0.087 | 0.006 / 0.213 |
+| kink | nonlinear marginals; interaction; threshold/saturation | 1.499 (1.377–1.632) | 1/20 | 0.014 / 0.009 | 0.499 / 0.236 | 5.935 (5.015–7.130) | 0/20 | 0.199 / 0.034 | 0.914 / 0.479 |
+| breast_cancer | weak interaction; single-extremum (bump/U) marginal; threshold/saturation | 1.471 (0.901–2.211) | 4/20 | 0.040 / 0.027 |  | — |  |  |  |
+| circadian_blood | nonlinear marginals; single-extremum (bump/U) marginal; 24 h rhythm in 100% of outputs (q<0.05) | 0.999 (0.997–1.001) | 9/20 | 1.011 / 1.012 | 1.092 / 1.061 (cosinor 0.999) | — |  |  |  |
+| circadian_liver | nonlinear marginals; weak interaction; oscillatory marginal; 24 h rhythm in 100% of outputs (q<0.05) | 1.026 (0.978–1.071) | 7/20 | 0.538 / 0.526 | 1.142 / 1.125 (cosinor 0.487) | 0.492 (0.465–0.531) | 20/20 | 1.545 / 3.219 | 1.258 / 1.256 (cosinor 0.663) |
+| diabetes | near-linear; threshold/saturation | 1.037 (0.999–1.065) | 5/20 | 0.728 / 0.702 | 0.957 / 0.696 | — |  |  |  |
+| drug_combo | nonlinear marginals; interaction; single-extremum (bump/U) marginal; threshold/saturation | 0.990 (0.946–1.025) | 22/48 | 0.598 / 0.600 | 0.954 / 0.756 | 1.036 (0.928–1.143) | 21/48 | 0.875 / 0.835 | 1.668 / 1.277 |
+| gb1_epistasis | weak interaction | 1.017 (1.007–1.026) | 2/20 | 0.305 / 0.300 | 0.999 / 0.360 | 1.226 (1.142–1.313) | 0/20 | 0.392 / 0.319 | 1.878 / 0.919 |
+| mpsa_splicing | interaction | 1.005 (0.996–1.014) | 8/20 | 0.597 / 0.594 | 0.954 / 0.864 | — |  |  |  |
+| yeast | near-linear; single-extremum (bump/U) marginal; threshold/saturation | 0.987 (0.918–1.050) | 10/20 | 0.475 / 0.480 |  | — |  |  |  |
 
 ### Validation-selected KAN vs MLP, inside test
 

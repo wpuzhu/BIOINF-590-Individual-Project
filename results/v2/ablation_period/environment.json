@@ -1,0 +1,9 @@
+{
+  "engine": "numpy (kan_mlp.engine_np)",
+  "python": "3.13.18",
+  "numpy": "2.5.3",
+  "platform": "Linux-6.18.44-fc-v310-x86_64-with-glibc2.39",
+  "workers": 2,
+  "blas_threads_per_worker": 1,
+  "commit": "ac938f396af4422652f4f7e490353ca22a444723"
+}

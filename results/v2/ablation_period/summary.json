@@ -1,0 +1,32 @@
+{
+  "friedman": {
+    "chi2": 14.071428571428555,
+    "p": 0.01516200218439106,
+    "blocks": 8,
+    "nemenyi_cd": 2.665930888076433,
+    "mean_rank": {
+      "mlp-tanh": 2.625,
+      "mlp-relu": 2.75,
+      "mlp-silu": 4.0,
+      "kan-spline": 3.375,
+      "kan-fourier": 5.5,
+      "kan-rbf": 2.75
+    }
+  },
+  "overall": [
+    {
+      "task_type": "regression",
+      "n": 40,
+      "kan_wins": 15,
+      "mean_log_ratio": 0.015161711556991397
+    }
+  ],
+  "runs": 240,
+  "stop_reasons": {
+    "validation_plateau": 237,
+    "epoch_limit": 3
+  },
+  "max_budget_error": 0.0166015625,
+  "diverged_candidates": 0,
+  "kan_over_mlp_time": 0.6814466846423715
+}

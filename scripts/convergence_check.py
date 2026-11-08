@@ -13,6 +13,7 @@ import sys
 from multiprocessing import Pool
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -53,5 +54,35 @@ def main():
     print(df[["task", "model", "depth", "budget", "epochs_15000cap", "stop_15000cap", "inside_error_3000cap", "inside_error_15000cap"]].to_string())
 
 
+
+
+def summarize(runs_dir, check_csv, out_md):
+    """Recompute the validation-selected paired comparison with the extended-cap
+    results substituted for the capped runs, for every affected task."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from analyze_v2 import load_runs, selected_pairs, task_headline
+    df = load_runs(runs_dir); chk = pd.read_csv(check_csv)
+    key = ["task", "seed", "depth", "budget", "model"]
+    alt = df.merge(chk.drop(columns=["lr"]), on=key, how="left")
+    hit = alt.val_15000cap.notna()
+    alt.loc[hit, "val_loss"] = alt.loc[hit, "val_15000cap"]
+    alt.loc[hit, "inside_error"] = alt.loc[hit, "inside_error_15000cap"]
+    if "outside_error_15000cap" in alt:
+        h2 = hit & alt.outside_error_15000cap.notna()
+        alt.loc[h2, "outside_error"] = alt.loc[h2, "outside_error_15000cap"]
+    tasks_ = sorted(chk.task.unique())
+    lines = ["| Task | Capped runs | Inside ratio, 3,000-epoch cap | Inside ratio, capped runs retrained to 15,000 | KAN wins (before → after) |",
+             "|---|---:|---|---|---|"]
+    for t in tasks_:
+        a = task_headline(selected_pairs(df[df.task == t])).iloc[0]
+        b = task_headline(selected_pairs(alt[alt.task == t][df.columns])).iloc[0]
+        lines.append(f"| {t} | {int((chk.task == t).sum())} | {np.exp(a.mean_log_ratio):.3f} ({np.exp(a.ci_low):.3f}–{np.exp(a.ci_high):.3f}) | "
+                     f"{np.exp(b.mean_log_ratio):.3f} ({np.exp(b.ci_low):.3f}–{np.exp(b.ci_high):.3f}) | {int(a.kan_wins)}/{int(a.blocks)} → {int(b.kan_wins)}/{int(b.blocks)} |")
+    Path(out_md).write_text("\n".join(lines) + "\n"); print("\n".join(lines))
+
+
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1 and sys.argv[1] == "--summarize":
+        summarize(sys.argv[2], sys.argv[3], sys.argv[4])
+    else:
+        main()
