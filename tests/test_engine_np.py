@@ -62,6 +62,11 @@ class EngineTests(unittest.TestCase):
             dims = [3, 6, 2]
             m = E.Model(kind, dims, 8, rng, dtype=np.float64)
             ref = build(kind, dims).double()
+            if kind.startswith("kan-"):
+                # models.py creates its grid centres and k*pi frequencies as float32
+                # buffers (.double() only widens them); use the identical constants.
+                m.basis.centers = ref[0].centers.numpy().copy()
+                m.basis.freq = ref[0].frequencies.numpy().copy()
             with torch.no_grad():
                 for t, p in zip(ref.parameters(), m.params):
                     t.copy_(torch.from_numpy(p))
