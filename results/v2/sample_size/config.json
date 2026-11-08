@@ -1,0 +1,124 @@
+{
+  "models": [
+    "mlp-tanh",
+    "mlp-relu",
+    "mlp-silu",
+    "kan-spline",
+    "kan-fourier",
+    "kan-rbf"
+  ],
+  "depths": [
+    1,
+    2
+  ],
+  "terms": 8,
+  "learning_rates": [
+    0.001,
+    0.003,
+    0.01
+  ],
+  "weight_decay": 0.0001,
+  "max_epochs": 3000,
+  "check_every": 10,
+  "patience": 12,
+  "lr_patience": 3,
+  "min_delta": 0.001,
+  "budget_tolerance": 0.02,
+  "tasks": {
+    "waves": {
+      "budgets": [
+        1024
+      ],
+      "seeds": [
+        11,
+        22,
+        33
+      ],
+      "depths": [
+        2
+      ],
+      "n_train": [
+        100,
+        300,
+        1000,
+        3000
+      ]
+    },
+    "radial": {
+      "budgets": [
+        1024
+      ],
+      "seeds": [
+        11,
+        22,
+        33
+      ],
+      "depths": [
+        2
+      ],
+      "n_train": [
+        100,
+        300,
+        1000,
+        3000
+      ]
+    },
+    "kink": {
+      "budgets": [
+        1024
+      ],
+      "seeds": [
+        11,
+        22,
+        33
+      ],
+      "depths": [
+        2
+      ],
+      "n_train": [
+        100,
+        300,
+        1000,
+        3000
+      ]
+    },
+    "interaction": {
+      "budgets": [
+        1024
+      ],
+      "seeds": [
+        11,
+        22,
+        33
+      ],
+      "depths": [
+        2
+      ],
+      "n_train": [
+        100,
+        300,
+        1000,
+        3000
+      ]
+    },
+    "gb1_epistasis": {
+      "budgets": [
+        1024
+      ],
+      "seeds": [
+        11,
+        22,
+        33
+      ],
+      "depths": [
+        2
+      ],
+      "n_train": [
+        100,
+        300,
+        1000,
+        3000
+      ]
+    }
+  }
+}

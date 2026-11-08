@@ -1,5 +1,13 @@
 # BIOINF 590 Individual Project — KAN versus MLP
 
+> **v2 research extension (branch `research-v2`).** This version adds:
+> - a structure audit that tests whether each biological dataset really has the periodic, localized, threshold or interaction structure assumed for it;
+> - eight new real-data tasks: circadian transcriptomes, drug-combination dose surfaces, GB1 epistasis, splice-site sequences and clinical data;
+> - parameter matching within ±2 %;
+> - 1,848 main runs with paired statistics, plus extrapolation tests, a sample-size sweep, a period-alignment ablation and an epoch-cap check.
+>
+> Start with [docs/research_design.md](docs/research_design.md), then [docs/structure_audit.md](docs/structure_audit.md) and [docs/results_v2.md](docs/results_v2.md). Reproduce with `make v2-data v2` (no PyTorch needed).
+
 **How do target structure, learned basis functions and depth change predictive accuracy and computational cost at comparable parameter budgets?**
 
 This repository contains the original interactive browser lab, a PyTorch simulation pipeline, a focused literature review, biological dataset loaders, tests and measured experiment results. The Python study compares **MLP tanh/ReLU/SiLU** with **KAN SiLU + cubic spline/Fourier/Gaussian RBF**. It is not restricted to one hidden layer.

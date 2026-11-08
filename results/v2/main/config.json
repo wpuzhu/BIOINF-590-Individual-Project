@@ -1,0 +1,218 @@
+{
+  "models": [
+    "mlp-tanh",
+    "mlp-relu",
+    "mlp-silu",
+    "kan-spline",
+    "kan-fourier",
+    "kan-rbf"
+  ],
+  "depths": [
+    1,
+    2
+  ],
+  "terms": 8,
+  "learning_rates": [
+    0.001,
+    0.003,
+    0.01
+  ],
+  "weight_decay": 0.0001,
+  "max_epochs": 3000,
+  "check_every": 10,
+  "patience": 12,
+  "lr_patience": 3,
+  "min_delta": 0.001,
+  "budget_tolerance": 0.02,
+  "tasks": {
+    "linear": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "additive": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "interaction": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "waves": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "radial": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "kink": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "circadian_liver": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "drug_combo": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    "gb1_epistasis": {
+      "budgets": [
+        1024,
+        4096
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "circadian_blood": {
+      "budgets": [
+        4096,
+        16384
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "mpsa_splicing": {
+      "budgets": [
+        4096,
+        16384
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "diabetes": {
+      "budgets": [
+        4096,
+        16384
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "breast_cancer": {
+      "budgets": [
+        4096,
+        16384
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    },
+    "yeast": {
+      "budgets": [
+        4096,
+        16384
+      ],
+      "seeds": [
+        11,
+        22,
+        33,
+        44,
+        55
+      ]
+    }
+  }
+}

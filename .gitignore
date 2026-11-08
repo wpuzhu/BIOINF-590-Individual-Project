@@ -5,3 +5,6 @@ __pycache__/
 *.egg-info/
 .DS_Store
 results/**/*.pt
+.cache_sources/
+# v2 per-run JSON is large; it is committed as results/v2/records_v2.zip instead
+results/v2/*/runs/

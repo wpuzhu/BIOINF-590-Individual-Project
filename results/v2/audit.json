@@ -1,0 +1,1448 @@
+{
+  "linear": {
+    "r2_linear": 0.9918925361622892,
+    "r2_additive": 0.9918232955912553,
+    "r2_flexible": 0.991842304187159,
+    "nonlinearity": -6.92405710339683e-05,
+    "interaction": 1.9008595903757808e-05,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.7215678546038917,
+        "sigmoid_gain": 0.00010296080304117439
+      },
+      {
+        "input": 1,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.2742620934812062,
+        "sigmoid_gain": 0.00021214606745578735
+      }
+    ],
+    "n": 2400,
+    "inputs": 2,
+    "outputs": 1,
+    "verdict": [
+      "near-linear"
+    ],
+    "hypothesis": "control: linear"
+  },
+  "additive": {
+    "r2_linear": 0.5814276836136482,
+    "r2_additive": 0.9953240451992712,
+    "r2_flexible": 0.9952972702318624,
+    "nonlinearity": 0.41389636158562304,
+    "interaction": -2.677496740877139e-05,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "oscillatory",
+        "counts": {
+          "oscillatory": 1
+        },
+        "r2_marginal_max": 0.955215450418829,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 1,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.05169929563363007,
+        "sigmoid_gain": null
+      }
+    ],
+    "n": 2400,
+    "inputs": 2,
+    "outputs": 1,
+    "verdict": [
+      "nonlinear marginals",
+      "oscillatory marginal"
+    ],
+    "hypothesis": "control: additive, non-monotone in x1"
+  },
+  "interaction": {
+    "r2_linear": -0.002796976706671339,
+    "r2_additive": -0.00204350359995642,
+    "r2_flexible": 0.9900201839919975,
+    "nonlinearity": 0.0007534731067149192,
+    "interaction": 0.992063687591954,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 6.933395300423584e-05,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 1,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.0002031876048097514,
+        "sigmoid_gain": null
+      }
+    ],
+    "n": 2400,
+    "inputs": 2,
+    "outputs": 1,
+    "verdict": [
+      "interaction"
+    ],
+    "hypothesis": "control: pure product interaction"
+  },
+  "waves": {
+    "r2_linear": -0.0004381177110297507,
+    "r2_additive": 0.000287329180695739,
+    "r2_flexible": 0.990081338428614,
+    "nonlinearity": 0.0007254468917254897,
+    "interaction": 0.9897940092479183,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.004312957088841385,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 1,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.00043898499303118843,
+        "sigmoid_gain": null
+      }
+    ],
+    "n": 2400,
+    "inputs": 2,
+    "outputs": 1,
+    "verdict": [
+      "interaction"
+    ],
+    "hypothesis": "control: periodic interaction"
+  },
+  "radial": {
+    "r2_linear": 0.1324968831180754,
+    "r2_additive": 0.6780518459690138,
+    "r2_flexible": 0.9575015208957326,
+    "nonlinearity": 0.5455549628509384,
+    "interaction": 0.2794496749267188,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.35208653385584543,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 1,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.3148034642023022,
+        "sigmoid_gain": null
+      }
+    ],
+    "n": 2400,
+    "inputs": 2,
+    "outputs": 1,
+    "verdict": [
+      "nonlinear marginals",
+      "interaction",
+      "single-extremum (bump/U) marginal"
+    ],
+    "hypothesis": "control: localized bump"
+  },
+  "kink": {
+    "r2_linear": 0.5994699485035069,
+    "r2_additive": 0.6734763994670496,
+    "r2_flexible": 0.9813340387775975,
+    "nonlinearity": 0.07400645096354275,
+    "interaction": 0.3078576393105479,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.06522416145930687,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 1,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.6140429844419144,
+        "sigmoid_gain": 0.0356924965722748
+      }
+    ],
+    "n": 2400,
+    "inputs": 2,
+    "outputs": 1,
+    "verdict": [
+      "nonlinear marginals",
+      "interaction",
+      "threshold/saturation"
+    ],
+    "hypothesis": "control: threshold (piecewise linear)"
+  },
+  "circadian_blood": {
+    "r2_linear": 0.0050826182241225145,
+    "r2_additive": 0.1405749011220943,
+    "r2_flexible": 0.14394363907159075,
+    "nonlinearity": 0.1354922828979718,
+    "interaction": 0.0033687379494964365,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "single-extremum",
+        "counts": {
+          "oscillatory": 3,
+          "single-extremum": 6
+        },
+        "r2_marginal_max": 0.28838687266296037,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 1,
+        "kind": "discrete"
+      }
+    ],
+    "periodicity": {
+      "period_h": 24.0,
+      "p": [
+        4.298217443031931e-31,
+        2.8612962112969283e-29,
+        1.8949539273656653e-54,
+        1.0426956830918355e-32,
+        2.3929813736362147e-48,
+        1.0054358134012676e-39,
+        9.297815718719394e-49,
+        2.1526196451155019e-41,
+        1.501627689502757e-42,
+        6.41603693279095e-27
+      ],
+      "q": [
+        5.372771803789914e-31,
+        3.1792180125521425e-29,
+        1.8949539273656654e-53,
+        1.489565261559765e-32,
+        7.976604578787383e-48,
+        1.675726355668779e-39,
+        4.648907859359697e-48,
+        4.3052392902310037e-41,
+        3.7540692237568926e-42,
+        6.4160369327909494e-27
+      ],
+      "rel_amplitude": [
+        0.7520839745583864,
+        0.7569763568568534,
+        0.9679267163580806,
+        0.7399674684922269,
+        0.8699914393692639,
+        0.9075467552224517,
+        0.8495989385496362,
+        0.7862704893225743,
+        0.8330278025324264,
+        0.7127057151878893
+      ],
+      "fraction_rhythmic_q05": 1.0
+    },
+    "n": 399,
+    "inputs": 2,
+    "outputs": 10,
+    "verdict": [
+      "nonlinear marginals",
+      "single-extremum (bump/U) marginal",
+      "24 h rhythm in 100% of outputs (q<0.05)"
+    ],
+    "hypothesis": "periodic in time (circadian, ~24 h) plus homeostatic trend"
+  },
+  "circadian_liver": {
+    "r2_linear": -0.04319114328775051,
+    "r2_additive": 0.7234414544415585,
+    "r2_flexible": 0.7475983770170949,
+    "nonlinearity": 0.766632597729309,
+    "interaction": 0.024156922575536366,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "oscillatory",
+        "counts": {
+          "oscillatory": 10
+        },
+        "r2_marginal_max": 0.9661096054679728,
+        "sigmoid_gain": null
+      }
+    ],
+    "periodicity": {
+      "period_h": 24.0,
+      "p": [
+        1.4169107203073476e-09,
+        0.0005834584829652295,
+        5.758594416852139e-05,
+        1.2294036517101824e-14,
+        3.06463560885687e-12,
+        1.6992548797165746e-23,
+        1.0666843247286887e-16,
+        1.0328074027558816e-11,
+        1.4296542337130985e-11,
+        6.098787448734651e-14
+      ],
+      "q": [
+        1.7711384003841845e-09,
+        0.0005834584829652295,
+        6.398438240946822e-05,
+        4.0980121723672743e-14,
+        6.12927121771374e-12,
+        1.6992548797165745e-22,
+        5.333421623643443e-16,
+        1.7213456712598028e-11,
+        2.0423631910187122e-11,
+        1.5246968621836626e-13
+      ],
+      "rel_amplitude": [
+        1.2422913236890145,
+        0.9031935657175808,
+        0.960033907954389,
+        1.3548689152191828,
+        1.284479231570227,
+        1.3891646488952336,
+        1.3979448636735023,
+        1.311438679035103,
+        1.2609794102369363,
+        1.3467111628730328
+      ],
+      "fraction_rhythmic_q05": 1.0
+    },
+    "n": 36,
+    "inputs": 1,
+    "outputs": 10,
+    "verdict": [
+      "nonlinear marginals",
+      "weak interaction",
+      "oscillatory marginal",
+      "24 h rhythm in 100% of outputs (q<0.05)"
+    ],
+    "hypothesis": "periodic in time (circadian, 24 h, sharp harmonics for some genes)"
+  },
+  "drug_combo": {
+    "r2_linear": 0.35344185624624863,
+    "r2_additive": 0.3737096597640845,
+    "r2_flexible": 0.6680994047316933,
+    "nonlinearity": 0.020267803517835876,
+    "interaction": 0.2943897449676089,
+    "r2_linear_sd": 0.10292069503786928,
+    "r2_additive_sd": 0.18357474936565682,
+    "r2_flexible_sd": 0.17665758888388722,
+    "nonlinearity_sd": 0.126734750123852,
+    "interaction_sd": 0.2617583126147306,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "monotone",
+        "counts": {
+          "oscillatory": 1,
+          "single-extremum": 2,
+          "monotone": 9
+        },
+        "sigmoid_gain": 0.05417745796096518
+      },
+      {
+        "input": 1,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 6,
+          "monotone": 6
+        },
+        "sigmoid_gain": 0.012560447315233814
+      }
+    ],
+    "per_unit_shapes": [
+      [
+        {
+          "input": 0,
+          "kind": "oscillatory",
+          "counts": {
+            "oscillatory": 1
+          },
+          "r2_marginal_max": 0.2908465970306626,
+          "sigmoid_gain": null
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.3505109864237578,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.28992589007173686,
+          "sigmoid_gain": null
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.47494776202009237,
+          "sigmoid_gain": 0.04385841257584311
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.3364280277903595,
+          "sigmoid_gain": 0.05102462795145146
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.2608998953179267,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.4263497485492087,
+          "sigmoid_gain": 0.16764295730214995
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.2715144223638858,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.1647393604758246,
+          "sigmoid_gain": 0.000826630234284309
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.2719381107277239,
+          "sigmoid_gain": -5.085955862016434e-07
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.2507357193299312,
+          "sigmoid_gain": null
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.1485421408303127,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.28784370985754804,
+          "sigmoid_gain": 0.11242303398586972
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.15800983316344985,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.3542539952678184,
+          "sigmoid_gain": 0.0938027208813359
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.16130624703444651,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.2974714926043197,
+          "sigmoid_gain": 0.052688264473738644
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.18281674604545495,
+          "sigmoid_gain": 0.003439974444111593
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.24867725240191385,
+          "sigmoid_gain": 0.05417745796096518
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.2559366182742937,
+          "sigmoid_gain": 0.006858272473317162
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.29336112303886697,
+          "sigmoid_gain": 0.05406807919803325
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.2352998804195955,
+          "sigmoid_gain": 0.018262622157150465
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.2876849523808749,
+          "sigmoid_gain": 0.07280651286423001
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.24761943557120214,
+          "sigmoid_gain": 0.019452022948372227
+        }
+      ]
+    ],
+    "n": 81,
+    "inputs": 2,
+    "outputs": 1,
+    "units": 12,
+    "verdict": [
+      "nonlinear marginals",
+      "interaction",
+      "single-extremum (bump/U) marginal",
+      "threshold/saturation"
+    ],
+    "hypothesis": "sigmoidal dose thresholds with drug-drug interaction"
+  },
+  "gb1_epistasis": {
+    "r2_linear": 0.8759479221666613,
+    "r2_additive": 0.8830088579318944,
+    "r2_flexible": 0.9108581407920455,
+    "nonlinearity": 0.007060935765233145,
+    "interaction": 0.027849282860151092,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.33853705775263787,
+        "sigmoid_gain": 0.003844673899580764
+      },
+      {
+        "input": 1,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.5304659556866467,
+        "sigmoid_gain": 0.00478704901616489
+      }
+    ],
+    "n": 4500,
+    "inputs": 2,
+    "outputs": 1,
+    "verdict": [
+      "weak interaction"
+    ],
+    "hypothesis": "threshold / saturating global epistasis with interaction"
+  },
+  "mpsa_splicing": {
+    "r2_linear": 0.15563365043459543,
+    "r2_additive": 0.15563365043459543,
+    "r2_flexible": 0.5473782637966611,
+    "nonlinearity": 0.0,
+    "interaction": 0.3917446133620657,
+    "shapes": [],
+    "n": 7000,
+    "inputs": 36,
+    "outputs": 1,
+    "verdict": [
+      "interaction"
+    ],
+    "hypothesis": "high-order sequence interactions (one-hot input)"
+  },
+  "diabetes": {
+    "r2_linear": 0.4863487856870484,
+    "r2_additive": 0.48142361628409047,
+    "r2_flexible": 0.46524933379725586,
+    "nonlinearity": -0.004925169402957952,
+    "interaction": -0.016174282486834612,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.035808790637649524,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 1,
+        "kind": "discrete"
+      },
+      {
+        "input": 2,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.35392090053113157,
+        "sigmoid_gain": 0.000970687011326965
+      },
+      {
+        "input": 3,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.20265742977215928,
+        "sigmoid_gain": 0.0040601215287383585
+      },
+      {
+        "input": 4,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.04689422871369131,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 5,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.031933769972313786,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 6,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.1638273891855645,
+        "sigmoid_gain": 0.009684514073615702
+      },
+      {
+        "input": 7,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.21382502728416375,
+        "sigmoid_gain": 0.014010342914825835
+      },
+      {
+        "input": 8,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.3444380558405523,
+        "sigmoid_gain": 0.023747236130599148
+      },
+      {
+        "input": 9,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.16115458239712288,
+        "sigmoid_gain": 0.007226776221681774
+      }
+    ],
+    "n": 442,
+    "inputs": 10,
+    "outputs": 1,
+    "verdict": [
+      "near-linear",
+      "threshold/saturation"
+    ],
+    "hypothesis": "mostly additive clinical regression"
+  },
+  "breast_cancer": {
+    "r2_linear": 0.8813268614963767,
+    "r2_additive": 0.8299153839266427,
+    "r2_flexible": 0.8648069200993983,
+    "nonlinearity": -0.051411477569734076,
+    "interaction": 0.034891536172755644,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.611127930937764,
+        "sigmoid_gain": 0.08657317272950393
+      },
+      {
+        "input": 1,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.23447020531674023,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 2,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.6408784826612434,
+        "sigmoid_gain": 0.09611376181910403
+      },
+      {
+        "input": 3,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.6143772424389883,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 4,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.13983679877519284,
+        "sigmoid_gain": 0.010964511194369364
+      },
+      {
+        "input": 5,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.3956540040217744,
+        "sigmoid_gain": 0.0392121179713425
+      },
+      {
+        "input": 6,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.6170250741551874,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 7,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.7059506583878474,
+        "sigmoid_gain": 0.10552916831649495
+      },
+      {
+        "input": 8,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.1181778793534044,
+        "sigmoid_gain": 0.004673121900902744
+      },
+      {
+        "input": 9,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.0528860084025462,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 10,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.425685355346869,
+        "sigmoid_gain": -0.3216407714622773
+      },
+      {
+        "input": 11,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.017882499532329565,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 12,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.42828765492989496,
+        "sigmoid_gain": 0.12093661619424134
+      },
+      {
+        "input": 13,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.5690671177406642,
+        "sigmoid_gain": 0.28683277239057825
+      },
+      {
+        "input": 14,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.02701633159871708,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 15,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.154839144057345,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 16,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.23643032199508474,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 17,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.24540761804986222,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 18,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.041323058721703165,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 19,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.052140651022356654,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 20,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.7337838457879919,
+        "sigmoid_gain": -0.602880468817846
+      },
+      {
+        "input": 21,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.24086523940755,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 22,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.7559223933846695,
+        "sigmoid_gain": 0.14815641653157952
+      },
+      {
+        "input": 23,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.7276440175410643,
+        "sigmoid_gain": -0.5384991799405655
+      },
+      {
+        "input": 24,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.18757039428407596,
+        "sigmoid_gain": 0.008492916911194026
+      },
+      {
+        "input": 25,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.39117954248862763,
+        "sigmoid_gain": 0.041374570779728614
+      },
+      {
+        "input": 26,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1
+        },
+        "r2_marginal_max": 0.5581319041636827,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 27,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.7251093940426677,
+        "sigmoid_gain": 0.09522974285857522
+      },
+      {
+        "input": 28,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.19539168626622672,
+        "sigmoid_gain": 0.018332946640963743
+      },
+      {
+        "input": 29,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.12231106097604894,
+        "sigmoid_gain": -0.09895329359174387
+      }
+    ],
+    "n": 569,
+    "inputs": 30,
+    "outputs": 2,
+    "verdict": [
+      "weak interaction",
+      "single-extremum (bump/U) marginal",
+      "threshold/saturation"
+    ],
+    "hypothesis": "mostly linear-separable morphology classification"
+  },
+  "yeast": {
+    "r2_linear": 0.3731372575921683,
+    "r2_additive": 0.3577097051861333,
+    "r2_flexible": 0.3501730309711222,
+    "nonlinearity": -0.015427552406034994,
+    "interaction": -0.007536674215011141,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 3
+        },
+        "r2_marginal_max": 0.25469814116829737,
+        "sigmoid_gain": 0.12903020786612474
+      },
+      {
+        "input": 1,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 2
+        },
+        "r2_marginal_max": 0.26213429962768053,
+        "sigmoid_gain": 0.13584197235871354
+      },
+      {
+        "input": 2,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 1,
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.41624697639331465,
+        "sigmoid_gain": 0.1357749640544912
+      },
+      {
+        "input": 3,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.2562204989389161,
+        "sigmoid_gain": 0.034621725100337786
+      },
+      {
+        "input": 4,
+        "kind": "discrete"
+      },
+      {
+        "input": 5,
+        "kind": "discrete"
+      },
+      {
+        "input": 6,
+        "kind": "flat",
+        "counts": {},
+        "r2_marginal_max": 0.022253858038232877,
+        "sigmoid_gain": null
+      },
+      {
+        "input": 7,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.12866274968554547,
+        "sigmoid_gain": 0.017571797741401163
+      }
+    ],
+    "n": 1484,
+    "inputs": 8,
+    "outputs": 10,
+    "verdict": [
+      "near-linear",
+      "single-extremum (bump/U) marginal",
+      "threshold/saturation"
+    ],
+    "hypothesis": "protein-feature classification, weak structure"
+  },
+  "gb1_epistasis_fullrange": {
+    "r2_linear": 0.8377464993344486,
+    "r2_additive": 0.8421663882714114,
+    "r2_flexible": 0.9438919320524646,
+    "nonlinearity": 0.004419888936962879,
+    "interaction": 0.10172554378105314,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.3187294705758461,
+        "sigmoid_gain": 0.0067824605966329
+      },
+      {
+        "input": 1,
+        "kind": "monotone",
+        "counts": {
+          "monotone": 1
+        },
+        "r2_marginal_max": 0.48085345521649914,
+        "sigmoid_gain": 0.005458375253490466
+      }
+    ],
+    "n": 6500,
+    "inputs": 2,
+    "outputs": 1,
+    "verdict": [
+      "interaction"
+    ],
+    "hypothesis": "threshold / saturating global epistasis with interaction [full range incl. outside region]"
+  },
+  "drug_combo_fullrange": {
+    "r2_linear": 0.4210734806516864,
+    "r2_additive": 0.48937196987299414,
+    "r2_flexible": 0.7593602233481707,
+    "nonlinearity": 0.06829848922130755,
+    "interaction": 0.2699882534751766,
+    "r2_linear_sd": 0.08143106621239957,
+    "r2_additive_sd": 0.11354474629930623,
+    "r2_flexible_sd": 0.14697384449301135,
+    "nonlinearity_sd": 0.14035513574525463,
+    "interaction_sd": 0.20924637838271143,
+    "shapes": [
+      {
+        "input": 0,
+        "kind": "monotone",
+        "counts": {
+          "oscillatory": 2,
+          "monotone": 9,
+          "single-extremum": 1
+        },
+        "sigmoid_gain": 0.04843927387221958
+      },
+      {
+        "input": 1,
+        "kind": "single-extremum",
+        "counts": {
+          "single-extremum": 7,
+          "oscillatory": 1,
+          "monotone": 4
+        },
+        "sigmoid_gain": 0.021117227448603337
+      }
+    ],
+    "per_unit_shapes": [
+      [
+        {
+          "input": 0,
+          "kind": "oscillatory",
+          "counts": {
+            "oscillatory": 1
+          },
+          "r2_marginal_max": 0.31579498949425655,
+          "sigmoid_gain": null
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.32432180684474243,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "oscillatory",
+          "counts": {
+            "oscillatory": 1
+          },
+          "r2_marginal_max": 0.29160123281358197,
+          "sigmoid_gain": null
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.4679132548801529,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.4059827241802534,
+          "sigmoid_gain": 0.03759881798574771
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.23014068891030182,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.43995107845636083,
+          "sigmoid_gain": 0.17988629227321973
+        },
+        {
+          "input": 1,
+          "kind": "oscillatory",
+          "counts": {
+            "oscillatory": 1
+          },
+          "r2_marginal_max": 0.25756300588554537,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.19613775246145693,
+          "sigmoid_gain": 0.011321102796617022
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.28030249029469767,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.2774824444531121,
+          "sigmoid_gain": null
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.21971203690251007,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.31096728832557496,
+          "sigmoid_gain": 0.08483129982815307
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.19269871553830797,
+          "sigmoid_gain": 0.017564427020258844
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.40574399724802224,
+          "sigmoid_gain": 0.07755179143512247
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.1820831289090602,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.38540488525461336,
+          "sigmoid_gain": 0.04843927387221958
+        },
+        {
+          "input": 1,
+          "kind": "single-extremum",
+          "counts": {
+            "single-extremum": 1
+          },
+          "r2_marginal_max": 0.19241399306493645,
+          "sigmoid_gain": null
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.30690654421391395,
+          "sigmoid_gain": 0.04833936326281485
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.27115449181855533,
+          "sigmoid_gain": 0.02359859692823607
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.3167350707373292,
+          "sigmoid_gain": 0.03985592558355133
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.2595976581570658,
+          "sigmoid_gain": 0.018635857968970604
+        }
+      ],
+      [
+        {
+          "input": 0,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.32975831272581435,
+          "sigmoid_gain": 0.05934953239395124
+        },
+        {
+          "input": 1,
+          "kind": "monotone",
+          "counts": {
+            "monotone": 1
+          },
+          "r2_marginal_max": 0.25932569150858054,
+          "sigmoid_gain": 0.027782130358076973
+        }
+      ]
+    ],
+    "n": 100,
+    "inputs": 2,
+    "outputs": 1,
+    "units": 12,
+    "verdict": [
+      "nonlinear marginals",
+      "interaction",
+      "single-extremum (bump/U) marginal",
+      "threshold/saturation"
+    ],
+    "hypothesis": "sigmoidal dose thresholds with drug-drug interaction [full range incl. outside region]"
+  }
+}

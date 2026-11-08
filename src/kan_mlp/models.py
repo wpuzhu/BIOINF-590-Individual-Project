@@ -51,25 +51,4 @@ def build(kind, dims, terms=8):
     return nn.Sequential(*layers)
 
 
-def parameter_count(kind, dims, terms=8):
-    factor = 1 if kind.startswith("mlp-") else terms+2
-    return sum(factor*a*b+b for a,b in zip(dims[:-1],dims[1:]))
-
-
-@lru_cache(maxsize=512)
-def architecture(kind, inputs, outputs, depth, budget, terms=8):
-    """Closest active parameter count; no dummy parameters. Depth=hidden layers."""
-    best=None
-    factor=1 if kind.startswith("mlp-") else terms+2
-    max_width=max(256,math.ceil((budget-outputs)/(factor*(inputs+outputs)+1))+2) if depth==1 else 256
-    for w in range(1,max_width+1):
-        tails=[w] if depth==1 else range(max(1,w//2),min(256,2*w)+1)
-        for tail in tails:
-            hidden=[w]*(depth-1)+[tail]
-            dims=[inputs]+hidden+[outputs]
-            p=parameter_count(kind,dims,terms)
-            key=(abs(p-budget),max(hidden)/min(hidden),p)
-            if best is None or key<best[0]: best=(key,dims,p)
-    return best[1],best[2]
-
-MODELS=["mlp-tanh","mlp-relu","mlp-silu","kan-spline","kan-fourier","kan-rbf"]
+from .arch import MODELS, architecture, parameter_count  # noqa: E402,F401

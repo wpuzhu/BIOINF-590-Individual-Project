@@ -1,0 +1,38 @@
+{
+  "friedman": {
+    "chi2": 89.05102040816314,
+    "p": 1.0632629084970154e-17,
+    "blocks": 56,
+    "nemenyi_cd": 1.0076271631908302,
+    "mean_rank": {
+      "mlp-tanh": 3.339,
+      "mlp-relu": 2.839,
+      "mlp-silu": 3.0,
+      "kan-spline": 3.5,
+      "kan-fourier": 5.571,
+      "kan-rbf": 2.75
+    }
+  },
+  "overall": [
+    {
+      "task_type": "classification",
+      "n": 40,
+      "kan_wins": 14,
+      "mean_log_ratio": 0.1862956515638082
+    },
+    {
+      "task_type": "regression",
+      "n": 268,
+      "kan_wins": 97,
+      "mean_log_ratio": 0.07085027945188115
+    }
+  ],
+  "runs": 1848,
+  "stop_reasons": {
+    "validation_plateau": 1811,
+    "epoch_limit": 37
+  },
+  "max_budget_error": 0.019287109375,
+  "diverged_candidates": 0,
+  "kan_over_mlp_time": 1.5583051266871977
+}

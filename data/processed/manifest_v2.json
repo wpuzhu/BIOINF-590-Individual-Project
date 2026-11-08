@@ -1,0 +1,119 @@
+{
+  "circadian_blood": {
+    "file": "data/processed/circadian_blood.csv.gz",
+    "rows": 399,
+    "columns": [
+      "sample_library",
+      "subject",
+      "group",
+      "time_hoursawake",
+      "FBXL16_24786",
+      "PLD6_33164",
+      "MPZL1_7604",
+      "LRG1_9183",
+      "NELL2_31679",
+      "GHRL_21324",
+      "AK5_29625",
+      "PDE6B_14743",
+      "REPS2_24120",
+      "DHRS13_31181"
+    ],
+    "sha256": "bdbe8777aa1ac82fa18b07b4ed45488889436f6526b25c62b482f10882179358",
+    "source_repo": "https://github.com/gangwug/MetaCycle",
+    "source_commit": "fad6d443e8407d44983d1f9fe73976d5e90fb4da",
+    "source_files": [
+      "data/cycHumanBloodData.rda",
+      "data/cycHumanBloodDesign.rda",
+      "data/cycMouseLiverRNA.rda"
+    ],
+    "citation": "Moller-Levet CS et al. (2013) PNAS 110:E1132-41; GEO GSE39445; 10-transcript subset distributed with MetaCycle (GPL>=2)."
+  },
+  "circadian_liver": {
+    "file": "data/processed/circadian_liver.csv.gz",
+    "rows": 48,
+    "columns": [
+      "ct",
+      "Fkbp5_1448231_at",
+      "Per1_1449851_at",
+      "Cirbp_1416332_at",
+      "Per2_1417602_at",
+      "Nr1d1_1426464_at",
+      "Rorc_1425792_a_at",
+      "Clock_1418659_at",
+      "Tef_1424175_at",
+      "Tsc22d3_1420772_a_at",
+      "Nr1d2_1416958_at"
+    ],
+    "sha256": "3abb4e8b39fe47c9ff3441dbad20e50a38e3042a7189bc4649a650cc859d3bf6",
+    "source_repo": "https://github.com/gangwug/MetaCycle",
+    "source_commit": "fad6d443e8407d44983d1f9fe73976d5e90fb4da",
+    "source_files": [
+      "data/cycHumanBloodData.rda",
+      "data/cycHumanBloodDesign.rda",
+      "data/cycMouseLiverRNA.rda"
+    ],
+    "citation": "Hughes ME et al. (2009) PLoS Genet 5:e1000442; 10-transcript subset distributed with MetaCycle (GPL>=2)."
+  },
+  "drug_combo": {
+    "file": "data/processed/drug_combo.csv.gz",
+    "rows": 1200,
+    "columns": [
+      "block",
+      "drug_a",
+      "drug_b",
+      "conc_a_uM",
+      "conc_b_uM",
+      "row_index",
+      "col_index",
+      "inhibition"
+    ],
+    "sha256": "8a344a63098bccedcbed7fc46cfe2bdd772e75d2844bf3eab10748443aec9934",
+    "source_repo": "https://github.com/shuyuzheng/synergyfinder",
+    "source_commit": "ea2d246e4e14c79767df90eec67b9a2b75162b92",
+    "source_files": [
+      "data-raw/NCATS_10023/responses.csv",
+      "data-raw/NCATS_10023/metadata.csv"
+    ],
+    "citation": "NCATS matrix screen, assay 10023 (pyronaridine x artesunate, 12 blocks), distributed with synergyfinder (MPL-2.0)."
+  },
+  "gb1_epistasis": {
+    "file": "data/processed/gb1_epistasis.csv.gz",
+    "rows": 50000,
+    "columns": [
+      "mut_a",
+      "mut_b",
+      "fitness_a",
+      "fitness_b",
+      "fitness_ab",
+      "input_count"
+    ],
+    "sha256": "957d0e55e4de934f91e7c6302f27bcded5e1a29ecec90fb57d9a32edfc9f9f06",
+    "source_repo": "https://github.com/jbkinney/mavenn",
+    "source_commit": "95b5ff4913b961ac172fbc23c22be986f9f671d7",
+    "source_files": [
+      "paper/datasets/gb1_single_and_double_data.csv.gz",
+      "mavenn/examples/datasets/mpsa_data.csv.gz"
+    ],
+    "citation": "Olson CA, Wu NC, Sun R (2014) Curr Biol 24:2643-51; processed data distributed with MAVE-NN (MIT).",
+    "wild_type": "QYKLILNGKTLKGETTTEAVDAATAEKVFKQYANDNGVDGEWTYDDATKTFTVTE",
+    "filter": "input_count >= 100 for singles and doubles; doubles kept only if both singles pass; fixed random subsample of 50,000 doubles (random_state=0)"
+  },
+  "mpsa_splicing": {
+    "file": "data/processed/mpsa_splicing.csv.gz",
+    "rows": 30483,
+    "columns": [
+      "sequence",
+      "log_psi",
+      "source_split",
+      "tot_ct"
+    ],
+    "sha256": "9054329ece50192812be2084c56e2b9abe6ad41672e102300f0bbac18f0a5c29",
+    "source_repo": "https://github.com/jbkinney/mavenn",
+    "source_commit": "95b5ff4913b961ac172fbc23c22be986f9f671d7",
+    "source_files": [
+      "paper/datasets/gb1_single_and_double_data.csv.gz",
+      "mavenn/examples/datasets/mpsa_data.csv.gz"
+    ],
+    "citation": "Wong MS et al. (2018) Mol Cell 71:1012-26; processed data distributed with MAVE-NN (MIT)."
+  }
+}
