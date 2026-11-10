@@ -1,5 +1,7 @@
 # BIOINF 590 Individual Project — KAN versus MLP
 
+> **Branch `spatial-svg-benchmark`:** a robust, uncertainty-aware benchmarking design for spatial-transcriptomics biomarker (spatially variable gene) identification, with new aggregation and pruning methods and a pilot study. Everything is in [`spatial_benchmark/`](spatial_benchmark/); start with [`spatial_benchmark/PROPOSAL.md`](spatial_benchmark/PROPOSAL.md).
+
 **How do target structure, learned basis functions and depth change predictive accuracy and computational cost at comparable parameter budgets?**
 
 This repository contains the original interactive browser lab, a PyTorch simulation pipeline, a focused literature review, biological dataset loaders, tests and measured experiment results. The Python study compares **MLP tanh/ReLU/SiLU** with **KAN SiLU + cubic spline/Fourier/Gaussian RBF**. It is not restricted to one hidden layer.
