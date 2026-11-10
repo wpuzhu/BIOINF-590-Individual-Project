@@ -45,7 +45,7 @@ Other benchmarks of *global* SVG detection reached the same conclusion: methods 
 ## 2. The proposed framework
 
 ```mermaid
-flowchart LR
+flowchart TB
   subgraph IN[Data and perturbations]
     D[Counts + coordinates] --> P[Perturbation operators<br/>depth thinning · spot dropout<br/>coordinate jitter · resampling]
   end

@@ -1,6 +1,6 @@
 # spatial_benchmark — robust, uncertainty-aware benchmarking of spatial biomarker (SVG) identification
 
-Branch `spatial-svg-benchmark`. **Start with [PROPOSAL.md](PROPOSAL.md)**: the ideas, the experimental design and the pilot results, in one file.
+Branch `spatial-svg-benchmark`. **Start with [PROPOSAL.md](PROPOSAL.md)**: the ideas, the experimental design and the pilot results, in one file. `PROPOSAL.html` is the same document as a single self-contained page (figures and equations embedded) for reading offline.
 
 | Path | What it contains |
 |---|---|
