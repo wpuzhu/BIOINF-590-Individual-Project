@@ -1,5 +1,7 @@
 # Robust, uncertainty-aware benchmarking of spatial biomarker (SVG) identification
 
+> **Update:** v2 results, expanded methods and the real-data/Colab pipeline are in [REPORT_v2.md](REPORT_v2.md).
+
 *Branch `spatial-svg-benchmark` · BIOINF 590 individual project · reference benchmark: Kang L., Zhang Q., Qian F., Liang J., Wu X. "Benchmarking computational methods for detecting spatial domains and domain-specific spatially variable genes from spatial transcriptomics data." **Nucleic Acids Research** 53, gkaf303 (2025).*
 
 ## Summary

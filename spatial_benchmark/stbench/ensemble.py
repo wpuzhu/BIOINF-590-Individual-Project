@@ -125,3 +125,84 @@ def ensemble(members, coords, k, mode="cac_weighted_pruned", seed=0, mad_k=1.5, 
     C = coassociation(labs, np.maximum(w, 1e-3))
     lab, soft, conf = consensus_from_coassociation(C, k, seed)
     return {"labels": lab, "confidence": conf, "soft": soft, "kept": kept, "scores": scores}
+
+
+# ------------------------------------------------- published-style baselines
+def _onehot(l):
+    H = np.zeros((len(l), l.max() + 1), dtype=np.float32); H[np.arange(len(l)), l] = 1
+    return H
+
+
+def ensdd_weights(labelings, lam=None, iters=50, tol=1e-6):
+    """EnSDD-style weights (Li, Tan & Zhang 2024): minimise
+    sum_m w_m ||S - A_m||_F^2 + lam * sum_m w_m log w_m over the simplex, with
+    A_m the binary co-membership matrix of member m. Alternating closed forms:
+    S = sum_m w_m A_m and w_m proportional to exp(-||S - A_m||^2 / lam). Distances
+    are computed through one-hot factors, so no n x n matrix per member is stored.
+    lam defaults to the median initial distance (scale-free)."""
+    Hs = [_onehot(np.asarray(l)) for l in labelings]
+    M = len(Hs)
+    G = np.array([[float(((Hi.T @ Hj) ** 2).sum()) for Hj in Hs] for Hi in Hs])  # <A_i, A_j>
+    w = np.ones(M) / M
+    lam_v = lam
+    for _ in range(iters):
+        # ||S - A_m||^2 = w'Gw - 2 (Gw)_m + G_mm
+        Gw = G @ w
+        d = w @ Gw - 2 * Gw + np.diag(G)
+        if lam_v is None:
+            lam_v = float(np.median(d)) + 1e-9
+        new = np.exp(-(d - d.min()) / lam_v); new /= new.sum()
+        if np.abs(new - w).max() < tol:
+            w = new; break
+        w = new
+    return w
+
+
+def stcc_average(labelings, k, seed=0):
+    """STCC 'average-based' consensus: k-means on the rows of the unweighted
+    co-association matrix."""
+    from sklearn.cluster import KMeans
+    C = coassociation(labelings)
+    return KMeans(k, n_init=5, random_state=seed).fit_predict(C)
+
+
+def prune_gap(scores, delta=1.0, min_keep=2, max_keep=3):
+    """Pre-registered pruning rule (fixed on the pilot simulations before any
+    held-out or real data): keep methods whose score is within `delta` (z units)
+    of the best, at least `min_keep` and at most `max_keep`."""
+    names = sorted(scores, key=lambda m: -scores[m]["score"])
+    best = scores[names[0]]["score"]
+    kept = [m for m in names if scores[m]["score"] >= best - delta]
+    kept = kept[:max_keep]
+    if len(kept) < min_keep:
+        kept = names[:min_keep]
+    return kept
+
+
+def run_all_ensembles(members, coords, k, seed=0):
+    """All aggregation strategies on the same members. Returns dict name -> result."""
+    names = list(members)
+    out = {}
+    out["majority (Kang 2025)"] = ensemble(members, coords, k, "majority", seed=seed)
+    flat = [l for m in names for l in members[m]]
+    out["STCC-average"] = {"labels": stcc_average(flat, k, seed), "confidence": None, "kept": names}
+    owner = [m for m in names for _ in members[m]]
+    w = ensdd_weights(flat)
+    C = coassociation(flat, w)
+    lab, soft, conf = consensus_from_coassociation(C, k, seed)
+    wm = {m: float(sum(wi for wi, o in zip(w, owner) if o == m)) for m in names}
+    out["EnSDD-weights"] = {"labels": lab, "confidence": conf, "soft": soft, "kept": names, "weights": wm}
+    out["CAC weighted"] = ensemble(members, coords, k, "cac_weighted", seed=seed)
+    out["PCE (proposed)"] = pce(members, coords, k, seed)
+    return out
+
+
+def pce(members, coords, k, seed=0, prune=True):
+    """Pruned, confidence-aware co-association ensemble (proposed): label-free
+    scores -> pre-registered gap pruning -> weighted co-association consensus
+    -> soft memberships and per-spot confidence."""
+    scores = method_scores(members, coords) if len(members) > 1 else {m: {"score": 0.0, "weight": 1.0} for m in members}
+    kept = prune_gap(scores) if (prune and len(members) > 2) else list(members)
+    res = ensemble({m: members[m] for m in kept}, coords, k, "cac_weighted", seed=seed)
+    res["kept"] = kept; res["scores"] = scores
+    return res

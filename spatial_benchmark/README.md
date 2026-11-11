@@ -1,6 +1,10 @@
 # spatial_benchmark — robust, uncertainty-aware benchmarking of spatial biomarker (SVG) identification
 
-Branch `spatial-svg-benchmark`. **Start with [PROPOSAL.md](PROPOSAL.md)**: the ideas, the experimental design and the pilot results, in one file. `PROPOSAL.html` is the same document as a single self-contained page (figures and equations embedded) for reading offline.
+Branch `spatial-svg-benchmark`.
+
+**New (v2): [REPORT_v2.md](REPORT_v2.md)** (also `REPORT_v2.html`, self-contained) — gap analysis against EnSDD/STCC/SpatialESD/Castl/InSTability/ClusterDE, the expanded methods (PCE, SplitStab), held-out validation, and the real-data (DLPFC) pipeline. Run it on Colab: [notebooks/colab_spatial_svg_benchmark.ipynb](https://colab.research.google.com/github/wpuzhu/BIOINF-590-Individual-Project/blob/spatial-svg-benchmark/spatial_benchmark/notebooks/colab_spatial_svg_benchmark.ipynb).
+
+The original design: **[PROPOSAL.md](PROPOSAL.md)**: the ideas, the experimental design and the pilot results, in one file. `PROPOSAL.html` is the same document as a single self-contained page (figures and equations embedded) for reading offline.
 
 | Path | What it contains |
 |---|---|
@@ -10,6 +14,11 @@ Branch `spatial-svg-benchmark`. **Start with [PROPOSAL.md](PROPOSAL.md)**: the i
 | `stbench/svg_aggregate.py` | Intersection reference (paper) vs ACAT and rank aggregation. Agreement score. Stability selection with the Meinshausen–Bühlmann bound |
 | `scripts/run_pilot.py` | Pilot experiments E1–E5 |
 | `scripts/make_figures.py` | Figures and `results/pilot/summary.json` |
+| `stbench/splitting.py`, `stbench/domain_svg.py`, `stbench/workflow.py` | v2: count splitting, NB offset test, spatial gate, negative controls, SplitStab |
+| `stbench/real/` | v2: DLPFC loaders, GPU method wrappers (GraphST, STAGATE, SpaGCN), real-data experiments R1–R6 |
+| `scripts/run_validation.py`, `scripts/make_validation_figures.py` | v2 held-out validation V1–V5 (`results/validation/`) |
+| `scripts/run_real.py`, `scripts/report_real.py`, `configs/` | v2 real-data driver and HTML report |
+| `notebooks/colab_spatial_svg_benchmark.ipynb` | v2 Colab runner |
 | `tests/` | Unit tests, including null calibration of every test |
 
 ```bash
@@ -17,6 +26,9 @@ cd spatial_benchmark
 python -m unittest discover -s tests          # ~1 s
 python scripts/run_pilot.py --out results/pilot --workers 2   # ~25 min on 2 cores
 python scripts/make_figures.py --pilot results/pilot
+python scripts/run_validation.py --out results/validation --workers 2   # v2 validation, ~1-2 h on 2 cores
+python scripts/make_validation_figures.py results/validation
+python scripts/run_real.py --config configs/real_quick.json             # real data (needs anndata, scanpy, huggingface_hub)
 ```
 
 Dependencies: numpy, scipy, scikit-learn, pandas, matplotlib. No GPU and no R are needed.

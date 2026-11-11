@@ -70,3 +70,49 @@ def stability_selection(call_matrix, pi_thr=0.6):
 def jaccard(a, b):
     u = (a | b).sum()
     return float((a & b).sum() / u) if u else 1.0
+
+
+def castl_like(tests, counts=None, coords=None, test_fn=None, alpha=0.05, top_frac=0.1, nc_frac=0.1, rng=None,
+               use=("morans_i", "gearys_c", "sparkx_like")):
+    """Castl-style global aggregation (Yu et al. 2026), re-implemented for our tests:
+      rank_agg - sum of inverse ranks across tests, top `top_frac` of genes
+      pval_agg - Cauchy combination, Benjamini-Yekutieli correction, q < alpha
+      fdp_agg  - append permuted negative-control genes, re-run every test, take
+                 the per-gene fraction of tests calling it (BH < alpha), and pick the
+                 smallest frequency whose estimated FDP <= alpha (needs counts/coords/test_fn)."""
+    from .methods import acat
+    G = len(tests[use[0]][0])
+    inv = np.sum([1.0 / stats.rankdata(-tests[t][0]) for t in use], 0)
+    rank_sel = np.zeros(G, bool); rank_sel[np.argsort(-inv)[:int(round(top_frac * G))]] = True
+    P = np.array([tests[t][1] for t in use]); pa = acat(P, axis=0)
+    by = _by(pa)
+    out = {"rank_agg": rank_sel, "pval_agg": by < alpha}
+    if counts is not None and test_fn is not None:
+        rng = rng or np.random.default_rng(0)
+        n_nc = max(1, int(round(nc_frac * G)))
+        src = rng.choice(G, n_nc, replace=False)
+        aug = np.concatenate([counts, np.stack([rng.permutation(counts[:, g]) for g in src], 1)], 1)
+        t2 = test_fn(aug, coords)
+        freq = np.mean([bh(t2[t][1]) < alpha for t in use], 0)
+        fr, fn = freq[:G], freq[G:]
+        chosen = 1.01
+        for f in sorted(set(np.round(fr, 6)) - {0}):
+            fdp = (fn >= f).sum() * (G / n_nc) / max((fr >= f).sum(), 1)
+            if fdp <= alpha:
+                chosen = f; break
+        out["fdp_agg"] = fr >= chosen
+    return out
+
+
+def _by(p):
+    p = np.asarray(p, float); n = len(p); c = np.sum(1.0 / np.arange(1, n + 1))
+    o = np.argsort(p); q = np.empty(n)
+    q[o] = np.minimum.accumulate((p[o] * n * c / np.arange(1, n + 1))[::-1])[::-1]
+    return np.minimum(q, 1)
+
+
+def leave_one_out_reference(tests, held_out, alpha=0.05, use=("morans_i", "gearys_c", "sparkx_like")):
+    """ACAT reference built WITHOUT `held_out`, so a method is never scored against itself."""
+    from .methods import acat
+    others = [t for t in use if t != held_out]
+    return bh(acat(np.array([tests[t][1] for t in others]), axis=0)) < alpha

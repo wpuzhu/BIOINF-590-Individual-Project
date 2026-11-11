@@ -1,0 +1,61 @@
+layout,seed,approach,kind,ari,kept,ece,acc_conf_ge_0.6,acc_conf_lt_0.6,share_core
+layers,4,kmeans_pca,single,0.26357287676701463,,,,,
+layers,4,gmm_pca,single,0.38738944576808276,,,,,
+layers,4,kmeans_smooth,single,0.6431560297289214,,,,,
+layers,4,ward_spatial,single,0.46891175223277787,,,,,
+layers,4,spectral_spatial,single,0.3861134292369855,,,,,
+layers,4,majority (Kang 2025),ensemble,0.5874229328376874,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.048347826086956466,0.7085775173148642,0.4491725768321513,0.8160869565217391
+layers,4,STCC-average,ensemble,0.586600410578483,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",,,,
+layers,4,EnSDD-weights,ensemble,0.536514351678158,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.1180206261197268,0.9744186046511628,0.4284722222222222,0.3739130434782609
+layers,4,CAC weighted,ensemble,0.54142890961403,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.1256461062087453,0.9689922480620154,0.41159627773801,0.39260869565217393
+layers,4,PCE (proposed),ensemble,0.5684755854317167,"kmeans_smooth,spectral_spatial",0.15274958128296126,0.686798503474078,0.2727272727272727,0.8134782608695652
+layers,5,kmeans_pca,single,0.29520367435449657,,,,,
+layers,5,gmm_pca,single,0.5091392587335503,,,,,
+layers,5,kmeans_smooth,single,0.5170822338152579,,,,,
+layers,5,ward_spatial,single,0.305093424661327,,,,,
+layers,5,spectral_spatial,single,0.4753509466905179,,,,,
+layers,5,majority (Kang 2025),ensemble,0.542122530754935,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.07417391304347828,0.6973365617433414,0.548936170212766,0.8978260869565218
+layers,5,STCC-average,ensemble,0.5012066063787635,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",,,,
+layers,5,EnSDD-weights,ensemble,0.5025027017240165,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.15758440497516094,0.6626379400945875,0.4282115869017632,0.827391304347826
+layers,5,CAC weighted,ensemble,0.49984177329482515,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.147762080820115,0.6641949152542372,0.42718446601941745,0.8208695652173913
+layers,5,PCE (proposed),ensemble,0.5066865461007329,"kmeans_smooth,spectral_spatial",0.22555509727944656,0.6384180790960452,0.42045454545454547,0.9234782608695652
+layers,6,kmeans_pca,single,0.23903655806965426,,,,,
+layers,6,gmm_pca,single,0.43845568349563274,,,,,
+layers,6,kmeans_smooth,single,0.5542789068546821,,,,,
+layers,6,ward_spatial,single,0.3158155218561293,,,,,
+layers,6,spectral_spatial,single,0.43245524694459636,,,,,
+layers,6,majority (Kang 2025),ensemble,0.5334244397815845,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.04808695652173926,0.7285559174809989,0.4759825327510917,0.8008695652173913
+layers,6,STCC-average,ensemble,0.5746799545573348,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",,,,
+layers,6,EnSDD-weights,ensemble,0.46951550222426547,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.1023860264803238,0.6556071665560717,0.3669609079445145,0.6552173913043479
+layers,6,CAC weighted,ensemble,0.47156601661430253,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.10512706579232715,0.6508344030808729,0.3665768194070081,0.6773913043478261
+layers,6,PCE (proposed),ensemble,0.4765310993917661,"kmeans_smooth,spectral_spatial",0.2360745538245403,0.6121898597626753,0.3609865470852018,0.8060869565217391
+blobs,4,kmeans_pca,single,0.36034486769730567,,,,,
+blobs,4,gmm_pca,single,0.5093030500690849,,,,,
+blobs,4,kmeans_smooth,single,0.6051713971929973,,,,,
+blobs,4,ward_spatial,single,0.514150843781927,,,,,
+blobs,4,spectral_spatial,single,0.5771583404005465,,,,,
+blobs,4,majority (Kang 2025),ensemble,0.6154827842710657,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.07652173913043482,0.7964042759961127,0.2066115702479339,0.8947826086956522
+blobs,4,STCC-average,ensemble,0.5976194947949863,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",,,,
+blobs,4,EnSDD-weights,ensemble,0.6021375525092841,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.09028204202047294,0.760555852485302,0.4731934731934732,0.8134782608695652
+blobs,4,CAC weighted,ensemble,0.6013743562862758,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.09356566437134373,0.7603613177470776,0.4688995215311005,0.8182608695652174
+blobs,4,PCE (proposed),ensemble,0.6079878193640221,"kmeans_smooth,spectral_spatial",0.14806686399308575,0.7297551789077212,0.5454545454545454,0.9234782608695652
+blobs,5,kmeans_pca,single,0.5571940157232812,,,,,
+blobs,5,gmm_pca,single,0.761496472023168,,,,,
+blobs,5,kmeans_smooth,single,0.8924833748475206,,,,,
+blobs,5,ward_spatial,single,0.6720929122024885,,,,,
+blobs,5,spectral_spatial,single,0.8894262428289528,,,,,
+blobs,5,majority (Kang 2025),ensemble,0.8321374919206116,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.030521739130434773,0.8925729442970822,0.13157894736842105,0.9834782608695652
+blobs,5,STCC-average,ensemble,0.7750418078060815,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",,,,
+blobs,5,EnSDD-weights,ensemble,0.9241425843192979,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.09787977674587209,0.9861687413554634,0.6183206106870229,0.9430434782608695
+blobs,5,CAC weighted,ensemble,0.9179745628110827,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.14044909463492933,0.990990990990991,0.7682119205298014,0.8686956521739131
+blobs,5,PCE (proposed),ensemble,0.9321146378973605,"spectral_spatial,kmeans_smooth",0.049318280750434255,0.9829366861248316,0.5342465753424658,0.9682608695652174
+blobs,6,kmeans_pca,single,0.43074145590152846,,,,,
+blobs,6,gmm_pca,single,0.5070079283237744,,,,,
+blobs,6,kmeans_smooth,single,0.8482561867127373,,,,,
+blobs,6,ward_spatial,single,0.6049928693100888,,,,,
+blobs,6,spectral_spatial,single,0.6767583005109687,,,,,
+blobs,6,majority (Kang 2025),ensemble,0.6109790887943457,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.07260869565217389,0.7853274249138356,0.1970260223048327,0.8830434782608696
+blobs,6,STCC-average,ensemble,0.5513314376195051,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",,,,
+blobs,6,EnSDD-weights,ensemble,0.8079332823385363,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.18245045396992415,0.9904019196160768,0.5576619273301737,0.7247826086956521
+blobs,6,CAC weighted,ensemble,0.7923212665275735,"kmeans_pca,gmm_pca,kmeans_smooth,ward_spatial,spectral_spatial",0.19708814584641,0.9923469387755102,0.5573770491803278,0.6817391304347826
+blobs,6,PCE (proposed),ensemble,0.853025443161594,"kmeans_smooth,spectral_spatial",0.11624082021232758,0.9761904761904762,0.4964788732394366,0.8765217391304347

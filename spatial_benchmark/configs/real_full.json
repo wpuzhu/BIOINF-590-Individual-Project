@@ -1,0 +1,70 @@
+{
+ "dataset": "dlpfc",
+ "cpu_methods": [
+  "kmeans_pca",
+  "gmm_pca",
+  "kmeans_smooth",
+  "ward_spatial",
+  "spectral_spatial"
+ ],
+ "gpu_methods": [
+  "GraphST",
+  "STAGATE",
+  "SpaGCN"
+ ],
+ "n_reps": 3,
+ "B": 20,
+ "max_genes": 6000,
+ "cache_dir": "data",
+ "experiments": [
+  "R1",
+  "R2",
+  "R3",
+  "R4",
+  "R5",
+  "R6"
+ ],
+ "samples": [
+  "151507",
+  "151508",
+  "151509",
+  "151510",
+  "151669",
+  "151670",
+  "151671",
+  "151672",
+  "151673",
+  "151674",
+  "151675",
+  "151676"
+ ],
+ "pairs": [
+  [
+   "151507",
+   "151508"
+  ],
+  [
+   "151509",
+   "151510"
+  ],
+  [
+   "151669",
+   "151670"
+  ],
+  [
+   "151671",
+   "151672"
+  ],
+  [
+   "151673",
+   "151674"
+  ],
+  [
+   "151675",
+   "151676"
+  ]
+ ],
+ "out": "results/real_full",
+ "splitstab_reps": 1,
+ "svg_methods": "cpu_kept"
+}

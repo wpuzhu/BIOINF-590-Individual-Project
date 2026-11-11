@@ -1,0 +1,5 @@
+seed,"paper rule, same data (strict)","paper rule, same data (liberal)","v2 rule, same data","v2 rule, count split","v2 rule, count split + spatial gate","Wilcoxon rule, count split",SplitStab without spatial gate,SplitStab (selected),SplitStab threshold
+21,15,104,69,10,0,13,2,0,0.5
+22,23,113,64,3,0,14,2,0,0.5
+23,26,105,69,21,0,14,3,0,0.5
+24,27,109,72,27,0,31,19,0,0.5

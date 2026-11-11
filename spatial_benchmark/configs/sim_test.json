@@ -1,0 +1,34 @@
+{
+ "dataset": "sim",
+ "cpu_methods": [
+  "kmeans_pca",
+  "gmm_pca",
+  "kmeans_smooth",
+  "ward_spatial",
+  "spectral_spatial"
+ ],
+ "gpu_methods": [],
+ "n_reps": 2,
+ "B": 4,
+ "max_genes": 6000,
+ "cache_dir": "data",
+ "experiments": [
+  "R1",
+  "R2",
+  "R3",
+  "R4",
+  "R5",
+  "R6"
+ ],
+ "samples": [
+  "sim7",
+  "sim7b"
+ ],
+ "pairs": [
+  [
+   "sim7",
+   "sim7b"
+  ]
+ ],
+ "out": "results/sim_pipeline_test"
+}

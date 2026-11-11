@@ -1,0 +1,261 @@
+{
+ "v1_mean": {
+  "kmeans_pca": 0.358,
+  "gmm_pca": 0.519,
+  "ward_spatial": 0.48,
+  "spectral_spatial": 0.573,
+  "kmeans_smooth": 0.677,
+  "majority (Kang 2025)": 0.62,
+  "STCC-average": 0.598,
+  "EnSDD-weights": 0.64,
+  "CAC weighted": 0.637,
+  "PCE (proposed)": 0.657
+ },
+ "v1_pce_minus_majority (Kang 2025)": {
+  "mean": 0.037,
+  "wins": 2,
+  "ci": [
+   -0.034,
+   0.129
+  ]
+ },
+ "v1_pce_minus_STCC-average": {
+  "mean": 0.06,
+  "wins": 4,
+  "ci": [
+   -0.036,
+   0.175
+  ]
+ },
+ "v1_pce_minus_EnSDD-weights": {
+  "mean": 0.017,
+  "wins": 6,
+  "ci": [
+   0.006,
+   0.03
+  ]
+ },
+ "v1_pce_minus_CAC weighted": {
+  "mean": 0.02,
+  "wins": 6,
+  "ci": [
+   0.007,
+   0.037
+  ]
+ },
+ "v1_pce_minus_best_single": -0.019,
+ "v1_calibration": {
+  "CAC weighted": {
+   "ece": 0.135,
+   "acc_conf_ge_0.6": 0.838,
+   "acc_conf_lt_0.6": 0.5,
+   "share_core": 0.71
+  },
+  "EnSDD-weights": {
+   "ece": 0.125,
+   "acc_conf_ge_0.6": 0.838,
+   "acc_conf_lt_0.6": 0.479,
+   "share_core": 0.723
+  },
+  "PCE (proposed)": {
+   "ece": 0.155,
+   "acc_conf_ge_0.6": 0.771,
+   "acc_conf_lt_0.6": 0.438,
+   "share_core": 0.885
+  },
+  "majority (Kang 2025)": {
+   "ece": 0.058,
+   "acc_conf_ge_0.6": 0.768,
+   "acc_conf_lt_0.6": 0.335,
+   "share_core": 0.879
+  }
+ },
+ "v2_null_calls_mean": {
+  "paper rule, same data (liberal)": 107.8,
+  "v2 rule, same data": 68.5,
+  "paper rule, same data (strict)": 22.8,
+  "Wilcoxon rule, count split": 18.0,
+  "v2 rule, count split": 15.2,
+  "SplitStab without spatial gate": 6.5,
+  "v2 rule, count split + spatial gate": 0.0,
+  "SplitStab (selected)": 0.0
+ },
+ "v2_null_calls_range": {
+  "paper rule, same data (liberal)": [
+   104,
+   113
+  ],
+  "v2 rule, same data": [
+   64,
+   72
+  ],
+  "paper rule, same data (strict)": [
+   15,
+   27
+  ],
+  "Wilcoxon rule, count split": [
+   13,
+   31
+  ],
+  "v2 rule, count split": [
+   3,
+   27
+  ],
+  "SplitStab without spatial gate": [
+   2,
+   19
+  ],
+  "v2 rule, count split + spatial gate": [
+   0,
+   0
+  ],
+  "SplitStab (selected)": [
+   0,
+   0
+  ]
+ },
+ "v3": {
+  "0.25": {
+   "seed": 5.0,
+   "paper_strict_n_called": 5.833,
+   "paper_strict_precision": 1.0,
+   "paper_strict_recall": 0.029,
+   "paper_strict_fdp": 0.0,
+   "paper_strict_f1": 0.057,
+   "paper_liberal_n_called": 132.5,
+   "paper_liberal_precision": 0.765,
+   "paper_liberal_recall": 0.503,
+   "paper_liberal_fdp": 0.235,
+   "paper_liberal_f1": 0.603,
+   "splitstab_n_called": 54.833,
+   "splitstab_precision": 1.0,
+   "splitstab_recall": 0.274,
+   "splitstab_fdp": 0.0,
+   "splitstab_f1": 0.407,
+   "splitstab_threshold": 0.5,
+   "splitstab_pi0.6_recall": 0.245,
+   "splitstab_pi0.6_precision": 1.0,
+   "splitstab_pi0.7_recall": 0.211,
+   "splitstab_pi0.7_precision": 1.0,
+   "splitstab_pi0.8_recall": 0.177,
+   "splitstab_pi0.8_precision": 1.0,
+   "splitstab_pi0.9_recall": 0.139,
+   "splitstab_pi0.9_precision": 1.0,
+   "n_pi": 0.0
+  },
+  "0.5": {
+   "seed": 5.0,
+   "paper_strict_n_called": 21.0,
+   "paper_strict_precision": 1.0,
+   "paper_strict_recall": 0.105,
+   "paper_strict_fdp": 0.0,
+   "paper_strict_f1": 0.189,
+   "paper_liberal_n_called": 153.667,
+   "paper_liberal_precision": 0.864,
+   "paper_liberal_recall": 0.661,
+   "paper_liberal_fdp": 0.136,
+   "paper_liberal_f1": 0.746,
+   "splitstab_n_called": 93.833,
+   "splitstab_precision": 1.0,
+   "splitstab_recall": 0.469,
+   "splitstab_fdp": 0.0,
+   "splitstab_f1": 0.634,
+   "splitstab_threshold": 0.5,
+   "splitstab_pi0.6_recall": 0.446,
+   "splitstab_pi0.6_precision": 1.0,
+   "splitstab_pi0.7_recall": 0.411,
+   "splitstab_pi0.7_precision": 1.0,
+   "splitstab_pi0.8_recall": 0.367,
+   "splitstab_pi0.8_precision": 1.0,
+   "splitstab_pi0.9_recall": 0.327,
+   "splitstab_pi0.9_precision": 1.0,
+   "n_pi": 0.0
+  },
+  "1.0": {
+   "seed": 5.0,
+   "paper_strict_n_called": 51.833,
+   "paper_strict_precision": 1.0,
+   "paper_strict_recall": 0.259,
+   "paper_strict_fdp": 0.0,
+   "paper_strict_f1": 0.41,
+   "paper_liberal_n_called": 188.833,
+   "paper_liberal_precision": 0.899,
+   "paper_liberal_recall": 0.846,
+   "paper_liberal_fdp": 0.101,
+   "paper_liberal_f1": 0.87,
+   "splitstab_n_called": 109.667,
+   "splitstab_precision": 1.0,
+   "splitstab_recall": 0.548,
+   "splitstab_fdp": 0.0,
+   "splitstab_f1": 0.706,
+   "splitstab_threshold": 0.5,
+   "splitstab_pi0.6_recall": 0.516,
+   "splitstab_pi0.6_precision": 1.0,
+   "splitstab_pi0.7_recall": 0.491,
+   "splitstab_pi0.7_precision": 1.0,
+   "splitstab_pi0.8_recall": 0.447,
+   "splitstab_pi0.8_precision": 1.0,
+   "splitstab_pi0.9_recall": 0.407,
+   "splitstab_pi0.9_precision": 1.0,
+   "n_pi": 0.0
+  }
+ },
+ "v3_pi_calibration": [
+  [
+   0.09,
+   0.961
+  ],
+  [
+   0.265,
+   1.0
+  ],
+  [
+   0.473,
+   1.0
+  ],
+  [
+   0.688,
+   1.0
+  ],
+  [
+   0.869,
+   1.0
+  ],
+  [
+   0.989,
+   1.0
+  ]
+ ],
+ "v4": {
+  "intersection (Kang 2025)": {
+   "precision": 0.999,
+   "recall": 0.664,
+   "f1": 0.797,
+   "n_called": 133.0
+  },
+  "Castl-like rank_agg": {
+   "precision": 1.0,
+   "recall": 0.5,
+   "f1": 0.667,
+   "n_called": 100.0
+  },
+  "Castl-like NC-FDP": {
+   "precision": 0.974,
+   "recall": 0.712,
+   "f1": 0.82,
+   "n_called": 146.833
+  },
+  "Castl-like Cauchy + BY": {
+   "precision": 0.989,
+   "recall": 0.729,
+   "f1": 0.839,
+   "n_called": 147.5
+  },
+  "ACAT + BH (ours)": {
+   "precision": 0.956,
+   "recall": 0.785,
+   "f1": 0.861,
+   "n_called": 164.333
+  }
+ }
+}

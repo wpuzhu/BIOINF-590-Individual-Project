@@ -66,7 +66,7 @@ def blob_domains(coords, k, rng):
 
 def simulate(n_x=50, n_y=46, n_domains=6, n_genes=1000, n_domain_genes=150, n_gradient_genes=50,
              logfcs=(0.4, 0.8, 1.2, 1.6), layout="layers", base_mean=(0.2, 4.0), dispersion=0.6,
-             lib_sd=0.4, boundary=1.5, n_states=4, n_state_genes=100, state_lfc=0.5, seed=0):
+             lib_sd=0.4, boundary=1.5, n_states=4, n_state_genes=100, state_lfc=0.5, seed=0, noise_seed=None):
     """Defaults give a 'moderate' regime calibrated to Kang et al. (2025): domain
     ARI 0.06-0.6 across methods, ~50 % zeros, and an intersection-consensus SVG
     reference that recovers only ~60-70 % of true SVGs."""
@@ -96,7 +96,7 @@ def simulate(n_x=50, n_y=46, n_domains=6, n_genes=1000, n_domain_genes=150, n_gr
         log_mu[:, g] += lfc[g] * member[:, target[g]]
     # non-spatial cell states (null genes only)
     nulls = order[n_domain_genes + n_gradient_genes:]
-    state = rng.integers(0, n_states, n)
+    state = rng.integers(0, n_states, n); state_orig = state
     sg = nulls[:n_state_genes]
     eff = rng.normal(0, state_lfc, (n_states, len(sg)))
     log_mu[:, sg] += eff[state]
@@ -105,6 +105,13 @@ def simulate(n_x=50, n_y=46, n_domains=6, n_genes=1000, n_domain_genes=150, n_gr
         theta = rng.uniform(0, 2 * np.pi)
         proj = xy @ np.array([np.cos(theta), np.sin(theta)])
         log_mu[:, g] += rng.uniform(0.4, 0.8) * proj
+    # noise_seed gives an independent "adjacent section": same tissue, layout and
+    # gene effects, new cell states, library sizes and counts.
+    if noise_seed is not None:
+        rng = np.random.default_rng(noise_seed)
+        state = rng.integers(0, n_states, n)
+        log_mu[:, sg] -= eff[state_orig]
+        log_mu[:, sg] += eff[state]
     lib = np.exp(rng.normal(0, lib_sd, n))
     mu = np.exp(log_mu) * lib[:, None]
     r = 1.0 / dispersion
