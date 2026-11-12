@@ -66,5 +66,19 @@
  ],
  "out": "results/real_full",
  "splitstab_reps": 1,
- "svg_methods": "cpu_kept"
+ "svg_methods": "cpu_kept",
+ "donor_pairs": [
+  [
+   "151507",
+   "151669"
+  ],
+  [
+   "151507",
+   "151673"
+  ],
+  [
+   "151669",
+   "151673"
+  ]
+ ]
 }

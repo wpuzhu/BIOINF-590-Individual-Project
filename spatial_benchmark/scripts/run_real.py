@@ -84,14 +84,35 @@ def run_sample(sample, cfg, methods, out):
     # Kang pipeline: one run per method (all methods) -> majority -> strict SpaGCN rule
     called, _ = W.paper_pipeline(ctx, k, methods, np.random.default_rng(seed), strict=True)
     lists["Kang 2025 pipeline"] = called
+    pce = ens["PCE (proposed)"]
     ss = W.splitstab(ctx, k, kept_methods, B=B, n_reps=reps, rng=np.random.default_rng(seed + 1), log=log,
+                     reference=pce["labels"],
                      progress=lambda b, n: say(sample, f"SplitStab {b}/{n}") if b % 5 == 0 or b == n else None)
-    lists["SplitStab (proposed)"] = ss["selected"]
-    pd.DataFrame({"gene": ctx.genes, "pi": ss["pi"], "selected": ss["selected"], "modal_domain": ss["modal_domain"],
-                  "kang_pipeline": lists["Kang 2025 pipeline"]}).to_csv(d / "domain_svgs.csv", index=False)
-    jdump({"threshold": ss["threshold"], "fdp_table": ss["fdp_table"], "mean_calls_per_replicate": ss["mean_calls_per_replicate"],
-           "pi_nc": ss["pi_nc"]}, d / "splitstab.json")
-    say(sample, f"SplitStab: {int(ss['selected'].sum())} genes at pi >= {ss['threshold']}; Kang pipeline: {int(called.sum())}")
+    comb, strict = ss["by_rule"]["liberal"], ss["by_rule"]["strict"]
+    lists["SplitStab combined (proposed)"] = comb["selected"]
+    lists["SplitStab strict (v2)"] = strict["selected"]
+    lists["global ACAT split + stability"] = ss["global"]["selected"]
+    if cfg.get("v1_stability", True):
+        say(sample, "v1 stability (ablation)")
+        lists["v1 stability (same data)"] = W.v1_stability(ctx, k, svg_methods, B=B, rng=np.random.default_rng(seed + 7), n_reps=1)["selected"]
+    # modal domain -> manual layer name (majority overlap of the reference PCE domain with manual labels)
+    truth = ctx.extra["labels"]; names = ctx.extra["label_names"]
+    ref2layer = [names[np.bincount(truth[pce["labels"] == d], minlength=len(names)).argmax()] if (pce["labels"] == d).any() else None
+                 for d in range(k)]
+    modal_layer = [ref2layer[m] if comb["selected"][i] or comb["pi"][i] > 0 else None for i, m in enumerate(comb["modal_domain"])]
+    pd.DataFrame({"gene": ctx.genes, "pi": comb["pi"], "selected": comb["selected"], "modal_domain": comb["modal_domain"],
+                  "modal_layer": modal_layer, "domain_purity": comb["domain_purity"],
+                  "pi_strict_v2": strict["pi"], "selected_strict_v2": strict["selected"], "pi_global": ss["global"]["pi"],
+                  **{n.replace(" ", "_"): v for n, v in lists.items() if n not in ("SplitStab combined (proposed)",)}}
+                 ).to_csv(d / "domain_svgs.csv", index=False)
+    jdump({r: {"threshold": v["threshold"], "fdp_table": v["fdp_table"], "mean_calls_per_replicate": v["mean_calls_per_replicate"]}
+           for r, v in {**ss["by_rule"], "global": ss["global"]}.items()}, d / "splitstab.json")
+    # uncertainty: spots (biological check against manual layer boundaries) and markers
+    urows, udf = R.spot_uncertainty(ctx, pce["labels"], pce["confidence"], ss["spot_agreement"], k, ss["spot_stability"])
+    jdump(urows, d / "uncertainty_spots_summary.json"); pd.DataFrame(udf).to_csv(d / "uncertainty_spots.csv", index=False)
+    pd.DataFrame(R.marker_check(ctx.genes, comb["pi"], comb["selected"], modal_layer)).to_csv(d / "marker_check.csv", index=False)
+    say(sample, f"SplitStab combined: {int(comb['selected'].sum())} genes (pi >= {comb['threshold']}); strict v2: "
+                f"{int(strict['selected'].sum())}; Kang pipeline: {int(called.sum())}")
 
     if "R6" in exps:
         rows6, glists, T = R.r6_global(ctx, seed)
@@ -115,9 +136,9 @@ def run_sample(sample, cfg, methods, out):
     say(sample, "done")
 
 
-def run_pairs(cfg, out):
+def run_pairs(cfg, out, key="pairs", fname="r4_replication.csv"):
     rows = []
-    for a, b in cfg.get("pairs", []):
+    for a, b in cfg.get(key, []):
         fa, fb = out / a / "lists.npz", out / b / "lists.npz"
         if not (fa.exists() and fb.exists()):
             continue
@@ -126,7 +147,7 @@ def run_pairs(cfg, out):
         for r in R.r4_replication({n: la[n] for n in names}, {n: lb[n] for n in names}, list(la["genes"]), list(lb["genes"])):
             rows.append({"pair": f"{a}/{b}", **r})
     if rows:
-        pd.DataFrame(rows).to_csv(out / "r4_replication.csv", index=False)
+        pd.DataFrame(rows).to_csv(out / fname, index=False)
 
 
 def main():
@@ -151,6 +172,7 @@ def main():
             jdump({"error": f"{type(e).__name__}: {e}"}, out / s / "error.json")
     if "R4" in cfg.get("experiments", ["R4"]):
         run_pairs(cfg, out)
+        run_pairs(cfg, out, "donor_pairs", "r4_cross_donor.csv")  # biological (between-person) replication
     from report_real import build_report
     path = build_report(out)
     say("report:", path)

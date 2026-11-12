@@ -1,0 +1,289 @@
+kind,layout,seed,depth,approach,n_called,false_calls,precision,recall,fdp,f1
+null,layers,21,1.0,Kang strict,15,15,0.0,,1.0,0.0
+null,layers,21,1.0,Kang liberal,104,104,0.0,,1.0,0.0
+null,layers,21,1.0,v1 stability (pi>=0.6),77,77,0.0,,1.0,0.0
+null,layers,21,1.0,single split strict,0,0,,,0.0,0.0
+null,layers,21,1.0,single split strict no gate,14,14,0.0,,1.0,0.0
+null,layers,21,1.0,single split liberal,0,0,,,0.0,0.0
+null,layers,21,1.0,single split liberal no gate,24,24,0.0,,1.0,0.0
+null,layers,21,1.0,single split liberal_nocore,0,0,,,0.0,0.0
+null,layers,21,1.0,single split liberal_nocore no gate,35,35,0.0,,1.0,0.0
+null,layers,21,1.0,SplitStab strict,0,0,,,0.0,0.0
+null,layers,21,1.0,SplitStab liberal,0,0,,,0.0,0.0
+null,layers,21,1.0,SplitStab liberal_nocore,0,0,,,0.0,0.0
+null,layers,21,1.0,SplitStab strict no gate,0,0,,,0.0,0.0
+null,layers,21,1.0,SplitStab liberal no gate,2,2,0.0,,1.0,0.0
+null,layers,21,1.0,SplitStab liberal_nocore no gate,7,7,0.0,,1.0,0.0
+null,layers,21,1.0,global intersection (Kang),0,0,,,0.0,0.0
+null,layers,21,1.0,global ACAT full data (v1),0,0,,,0.0,0.0
+null,layers,21,1.0,global ACAT split + stability (combined),0,0,,,0.0,0.0
+null,layers,22,1.0,Kang strict,23,23,0.0,,1.0,0.0
+null,layers,22,1.0,Kang liberal,113,113,0.0,,1.0,0.0
+null,layers,22,1.0,v1 stability (pi>=0.6),77,77,0.0,,1.0,0.0
+null,layers,22,1.0,single split strict,0,0,,,0.0,0.0
+null,layers,22,1.0,single split strict no gate,18,18,0.0,,1.0,0.0
+null,layers,22,1.0,single split liberal,0,0,,,0.0,0.0
+null,layers,22,1.0,single split liberal no gate,23,23,0.0,,1.0,0.0
+null,layers,22,1.0,single split liberal_nocore,0,0,,,0.0,0.0
+null,layers,22,1.0,single split liberal_nocore no gate,39,39,0.0,,1.0,0.0
+null,layers,22,1.0,SplitStab strict,0,0,,,0.0,0.0
+null,layers,22,1.0,SplitStab liberal,0,0,,,0.0,0.0
+null,layers,22,1.0,SplitStab liberal_nocore,0,0,,,0.0,0.0
+null,layers,22,1.0,SplitStab strict no gate,0,0,,,0.0,0.0
+null,layers,22,1.0,SplitStab liberal no gate,0,0,,,0.0,0.0
+null,layers,22,1.0,SplitStab liberal_nocore no gate,6,6,0.0,,1.0,0.0
+null,layers,22,1.0,global intersection (Kang),0,0,,,0.0,0.0
+null,layers,22,1.0,global ACAT full data (v1),0,0,,,0.0,0.0
+null,layers,22,1.0,global ACAT split + stability (combined),0,0,,,0.0,0.0
+null,layers,23,1.0,Kang strict,26,26,0.0,,1.0,0.0
+null,layers,23,1.0,Kang liberal,105,105,0.0,,1.0,0.0
+null,layers,23,1.0,v1 stability (pi>=0.6),79,79,0.0,,1.0,0.0
+null,layers,23,1.0,single split strict,0,0,,,0.0,0.0
+null,layers,23,1.0,single split strict no gate,39,39,0.0,,1.0,0.0
+null,layers,23,1.0,single split liberal,0,0,,,0.0,0.0
+null,layers,23,1.0,single split liberal no gate,60,60,0.0,,1.0,0.0
+null,layers,23,1.0,single split liberal_nocore,0,0,,,0.0,0.0
+null,layers,23,1.0,single split liberal_nocore no gate,60,60,0.0,,1.0,0.0
+null,layers,23,1.0,SplitStab strict,0,0,,,0.0,0.0
+null,layers,23,1.0,SplitStab liberal,0,0,,,0.0,0.0
+null,layers,23,1.0,SplitStab liberal_nocore,0,0,,,0.0,0.0
+null,layers,23,1.0,SplitStab strict no gate,7,7,0.0,,1.0,0.0
+null,layers,23,1.0,SplitStab liberal no gate,11,11,0.0,,1.0,0.0
+null,layers,23,1.0,SplitStab liberal_nocore no gate,20,20,0.0,,1.0,0.0
+null,layers,23,1.0,global intersection (Kang),0,0,,,0.0,0.0
+null,layers,23,1.0,global ACAT full data (v1),0,0,,,0.0,0.0
+null,layers,23,1.0,global ACAT split + stability (combined),0,0,,,0.0,0.0
+null,layers,24,1.0,Kang strict,27,27,0.0,,1.0,0.0
+null,layers,24,1.0,Kang liberal,109,109,0.0,,1.0,0.0
+null,layers,24,1.0,v1 stability (pi>=0.6),84,84,0.0,,1.0,0.0
+null,layers,24,1.0,single split strict,0,0,,,0.0,0.0
+null,layers,24,1.0,single split strict no gate,28,28,0.0,,1.0,0.0
+null,layers,24,1.0,single split liberal,0,0,,,0.0,0.0
+null,layers,24,1.0,single split liberal no gate,41,41,0.0,,1.0,0.0
+null,layers,24,1.0,single split liberal_nocore,0,0,,,0.0,0.0
+null,layers,24,1.0,single split liberal_nocore no gate,44,44,0.0,,1.0,0.0
+null,layers,24,1.0,SplitStab strict,0,0,,,0.0,0.0
+null,layers,24,1.0,SplitStab liberal,0,0,,,0.0,0.0
+null,layers,24,1.0,SplitStab liberal_nocore,0,0,,,0.0,0.0
+null,layers,24,1.0,SplitStab strict no gate,15,15,0.0,,1.0,0.0
+null,layers,24,1.0,SplitStab liberal no gate,22,22,0.0,,1.0,0.0
+null,layers,24,1.0,SplitStab liberal_nocore no gate,32,32,0.0,,1.0,0.0
+null,layers,24,1.0,global intersection (Kang),0,0,,,0.0,0.0
+null,layers,24,1.0,global ACAT full data (v1),0,0,,,0.0,0.0
+null,layers,24,1.0,global ACAT split + stability (combined),0,0,,,0.0,0.0
+signal,layers,4,1.0,Kang strict,42,0,1.0,0.21,0.0,0.34710743801652894
+signal,layers,4,1.0,Kang liberal,205,33,0.8390243902439024,0.86,0.16097560975609757,0.8493827160493828
+signal,layers,4,1.0,v1 stability (pi>=0.6),144,0,1.0,0.72,0.0,0.8372093023255813
+signal,layers,4,1.0,single split strict,31,0,1.0,0.155,0.0,0.2683982683982684
+signal,layers,4,1.0,single split strict no gate,32,1,0.96875,0.155,0.03125,0.2672413793103448
+signal,layers,4,1.0,single split liberal,36,0,1.0,0.18,0.0,0.3050847457627119
+signal,layers,4,1.0,single split liberal no gate,40,4,0.9,0.18,0.1,0.3
+signal,layers,4,1.0,single split liberal_nocore,110,0,1.0,0.55,0.0,0.7096774193548387
+signal,layers,4,1.0,single split liberal_nocore no gate,126,7,0.9444444444444444,0.595,0.05555555555555555,0.7300613496932514
+signal,layers,4,1.0,SplitStab strict,98,0,1.0,0.49,0.0,0.6577181208053691
+signal,layers,4,1.0,SplitStab liberal,113,0,1.0,0.565,0.0,0.7220447284345047
+signal,layers,4,1.0,SplitStab liberal_nocore,111,0,1.0,0.555,0.0,0.7138263665594855
+signal,layers,4,1.0,SplitStab strict no gate,105,0,1.0,0.525,0.0,0.6885245901639345
+signal,layers,4,1.0,SplitStab liberal no gate,127,0,1.0,0.635,0.0,0.7767584097859327
+signal,layers,4,1.0,SplitStab liberal_nocore no gate,129,0,1.0,0.645,0.0,0.78419452887538
+signal,layers,4,1.0,global intersection (Kang),129,0,1.0,0.645,0.0,0.78419452887538
+signal,layers,4,1.0,global ACAT full data (v1),163,5,0.9693251533742331,0.79,0.03067484662576687,0.8705234159779613
+signal,layers,4,1.0,global ACAT split + stability (combined),132,0,1.0,0.66,0.0,0.7951807228915663
+signal,layers,5,1.0,Kang strict,57,0,1.0,0.285,0.0,0.44357976653696496
+signal,layers,5,1.0,Kang liberal,190,22,0.8842105263157894,0.84,0.11578947368421053,0.8615384615384616
+signal,layers,5,1.0,v1 stability (pi>=0.6),157,0,1.0,0.785,0.0,0.8795518207282913
+signal,layers,5,1.0,single split strict,127,0,1.0,0.635,0.0,0.7767584097859327
+signal,layers,5,1.0,single split strict no gate,132,1,0.9924242424242424,0.655,0.007575757575757576,0.789156626506024
+signal,layers,5,1.0,single split liberal,137,0,1.0,0.685,0.0,0.8130563798219584
+signal,layers,5,1.0,single split liberal no gate,172,21,0.877906976744186,0.755,0.12209302325581395,0.8118279569892473
+signal,layers,5,1.0,single split liberal_nocore,138,0,1.0,0.69,0.0,0.8165680473372781
+signal,layers,5,1.0,single split liberal_nocore no gate,183,26,0.8579234972677595,0.785,0.14207650273224043,0.8198433420365535
+signal,layers,5,1.0,SplitStab strict,108,0,1.0,0.54,0.0,0.7012987012987013
+signal,layers,5,1.0,SplitStab liberal,114,0,1.0,0.57,0.0,0.7261146496815287
+signal,layers,5,1.0,SplitStab liberal_nocore,116,0,1.0,0.58,0.0,0.7341772151898733
+signal,layers,5,1.0,SplitStab strict no gate,117,0,1.0,0.585,0.0,0.7381703470031545
+signal,layers,5,1.0,SplitStab liberal no gate,128,0,1.0,0.64,0.0,0.7804878048780487
+signal,layers,5,1.0,SplitStab liberal_nocore no gate,135,0,1.0,0.675,0.0,0.8059701492537313
+signal,layers,5,1.0,global intersection (Kang),138,0,1.0,0.69,0.0,0.8165680473372781
+signal,layers,5,1.0,global ACAT full data (v1),168,7,0.9583333333333334,0.805,0.041666666666666664,0.875
+signal,layers,5,1.0,global ACAT split + stability (combined),135,0,1.0,0.675,0.0,0.8059701492537313
+signal,blobs,4,1.0,Kang strict,53,0,1.0,0.265,0.0,0.41897233201581024
+signal,blobs,4,1.0,Kang liberal,160,6,0.9625,0.77,0.0375,0.8555555555555556
+signal,blobs,4,1.0,v1 stability (pi>=0.6),156,0,1.0,0.78,0.0,0.8764044943820225
+signal,blobs,4,1.0,single split strict,102,0,1.0,0.51,0.0,0.6754966887417219
+signal,blobs,4,1.0,single split strict no gate,112,0,1.0,0.56,0.0,0.717948717948718
+signal,blobs,4,1.0,single split liberal,111,0,1.0,0.555,0.0,0.7138263665594855
+signal,blobs,4,1.0,single split liberal no gate,146,12,0.9178082191780822,0.67,0.0821917808219178,0.7745664739884393
+signal,blobs,4,1.0,single split liberal_nocore,112,0,1.0,0.56,0.0,0.717948717948718
+signal,blobs,4,1.0,single split liberal_nocore no gate,147,11,0.9251700680272109,0.68,0.07482993197278912,0.7838616714697407
+signal,blobs,4,1.0,SplitStab strict,110,0,1.0,0.55,0.0,0.7096774193548387
+signal,blobs,4,1.0,SplitStab liberal,113,0,1.0,0.565,0.0,0.7220447284345047
+signal,blobs,4,1.0,SplitStab liberal_nocore,114,0,1.0,0.57,0.0,0.7261146496815287
+signal,blobs,4,1.0,SplitStab strict no gate,130,0,1.0,0.65,0.0,0.787878787878788
+signal,blobs,4,1.0,SplitStab liberal no gate,145,0,1.0,0.725,0.0,0.8405797101449275
+signal,blobs,4,1.0,SplitStab liberal_nocore no gate,145,0,1.0,0.725,0.0,0.8405797101449275
+signal,blobs,4,1.0,global intersection (Kang),121,0,1.0,0.605,0.0,0.7538940809968847
+signal,blobs,4,1.0,global ACAT full data (v1),151,8,0.9470198675496688,0.715,0.052980132450331126,0.8148148148148147
+signal,blobs,4,1.0,global ACAT split + stability (combined),122,0,1.0,0.61,0.0,0.7577639751552795
+signal,layers,6,1.0,Kang strict,45,0,1.0,0.225,0.0,0.36734693877551017
+signal,layers,6,1.0,Kang liberal,186,19,0.8978494623655914,0.835,0.10215053763440861,0.8652849740932641
+signal,layers,6,1.0,v1 stability (pi>=0.6),152,1,0.993421052631579,0.755,0.006578947368421052,0.8579545454545454
+signal,layers,6,1.0,single split strict,101,0,1.0,0.505,0.0,0.6710963455149502
+signal,layers,6,1.0,single split strict no gate,106,2,0.9811320754716981,0.52,0.018867924528301886,0.6797385620915032
+signal,layers,6,1.0,single split liberal,116,1,0.9913793103448276,0.575,0.008620689655172414,0.7278481012658227
+signal,layers,6,1.0,single split liberal no gate,151,20,0.8675496688741722,0.655,0.13245033112582782,0.7464387464387464
+signal,layers,6,1.0,single split liberal_nocore,117,0,1.0,0.585,0.0,0.7381703470031545
+signal,layers,6,1.0,single split liberal_nocore no gate,155,22,0.8580645161290322,0.665,0.14193548387096774,0.7492957746478874
+signal,layers,6,1.0,SplitStab strict,103,0,1.0,0.515,0.0,0.6798679867986799
+signal,layers,6,1.0,SplitStab liberal,108,0,1.0,0.54,0.0,0.7012987012987013
+signal,layers,6,1.0,SplitStab liberal_nocore,108,0,1.0,0.54,0.0,0.7012987012987013
+signal,layers,6,1.0,SplitStab strict no gate,114,0,1.0,0.57,0.0,0.7261146496815287
+signal,layers,6,1.0,SplitStab liberal no gate,132,0,1.0,0.66,0.0,0.7951807228915663
+signal,layers,6,1.0,SplitStab liberal_nocore no gate,131,0,1.0,0.655,0.0,0.7915407854984895
+signal,layers,6,1.0,global intersection (Kang),131,1,0.9923664122137404,0.65,0.007633587786259542,0.7854984894259819
+signal,layers,6,1.0,global ACAT full data (v1),168,8,0.9523809523809523,0.8,0.047619047619047616,0.8695652173913043
+signal,layers,6,1.0,global ACAT split + stability (combined),119,0,1.0,0.595,0.0,0.7460815047021944
+signal,blobs,5,1.0,Kang strict,65,0,1.0,0.325,0.0,0.4905660377358491
+signal,blobs,5,1.0,Kang liberal,190,4,0.9789473684210527,0.93,0.021052631578947368,0.9538461538461539
+signal,blobs,5,1.0,v1 stability (pi>=0.6),181,0,1.0,0.905,0.0,0.9501312335958005
+signal,blobs,5,1.0,single split strict,135,0,1.0,0.675,0.0,0.8059701492537313
+signal,blobs,5,1.0,single split strict no gate,160,2,0.9875,0.79,0.0125,0.8777777777777778
+signal,blobs,5,1.0,single split liberal,137,0,1.0,0.685,0.0,0.8130563798219584
+signal,blobs,5,1.0,single split liberal no gate,185,11,0.9405405405405406,0.87,0.05945945945945946,0.903896103896104
+signal,blobs,5,1.0,single split liberal_nocore,137,0,1.0,0.685,0.0,0.8130563798219584
+signal,blobs,5,1.0,single split liberal_nocore no gate,183,10,0.9453551912568307,0.865,0.0546448087431694,0.9033942558746736
+signal,blobs,5,1.0,SplitStab strict,136,0,1.0,0.68,0.0,0.8095238095238095
+signal,blobs,5,1.0,SplitStab liberal,136,0,1.0,0.68,0.0,0.8095238095238095
+signal,blobs,5,1.0,SplitStab liberal_nocore,136,0,1.0,0.68,0.0,0.8095238095238095
+signal,blobs,5,1.0,SplitStab strict no gate,155,0,1.0,0.775,0.0,0.8732394366197184
+signal,blobs,5,1.0,SplitStab liberal no gate,170,0,1.0,0.85,0.0,0.9189189189189189
+signal,blobs,5,1.0,SplitStab liberal_nocore no gate,173,0,1.0,0.865,0.0,0.9276139410187667
+signal,blobs,5,1.0,global intersection (Kang),152,0,1.0,0.76,0.0,0.8636363636363636
+signal,blobs,5,1.0,global ACAT full data (v1),181,11,0.9392265193370166,0.85,0.06077348066298342,0.8923884514435695
+signal,blobs,5,1.0,global ACAT split + stability (combined),144,0,1.0,0.72,0.0,0.8372093023255813
+signal,blobs,6,1.0,Kang strict,49,0,1.0,0.245,0.0,0.393574297188755
+signal,blobs,6,1.0,Kang liberal,202,34,0.8316831683168316,0.84,0.16831683168316833,0.835820895522388
+signal,blobs,6,1.0,v1 stability (pi>=0.6),167,1,0.9940119760479041,0.83,0.005988023952095809,0.9046321525885558
+signal,blobs,6,1.0,single split strict,114,0,1.0,0.57,0.0,0.7261146496815287
+signal,blobs,6,1.0,single split strict no gate,133,3,0.9774436090225563,0.65,0.022556390977443608,0.7807807807807808
+signal,blobs,6,1.0,single split liberal,123,0,1.0,0.615,0.0,0.7616099071207431
+signal,blobs,6,1.0,single split liberal no gate,166,18,0.891566265060241,0.74,0.10843373493975904,0.8087431693989071
+signal,blobs,6,1.0,single split liberal_nocore,124,0,1.0,0.62,0.0,0.7654320987654321
+signal,blobs,6,1.0,single split liberal_nocore no gate,171,19,0.8888888888888888,0.76,0.1111111111111111,0.8194070080862534
+signal,blobs,6,1.0,SplitStab strict,114,0,1.0,0.57,0.0,0.7261146496815287
+signal,blobs,6,1.0,SplitStab liberal,116,0,1.0,0.58,0.0,0.7341772151898733
+signal,blobs,6,1.0,SplitStab liberal_nocore,118,0,1.0,0.59,0.0,0.7421383647798743
+signal,blobs,6,1.0,SplitStab strict no gate,127,0,1.0,0.635,0.0,0.7767584097859327
+signal,blobs,6,1.0,SplitStab liberal no gate,145,0,1.0,0.725,0.0,0.8405797101449275
+signal,blobs,6,1.0,SplitStab liberal_nocore no gate,155,0,1.0,0.775,0.0,0.8732394366197184
+signal,blobs,6,1.0,global intersection (Kang),127,0,1.0,0.635,0.0,0.7767584097859327
+signal,blobs,6,1.0,global ACAT full data (v1),155,5,0.967741935483871,0.75,0.03225806451612903,0.8450704225352113
+signal,blobs,6,1.0,global ACAT split + stability (combined),122,0,1.0,0.61,0.0,0.7577639751552795
+signal,layers,4,0.25,Kang strict,1,0,1.0,0.005,0.0,0.009950248756218907
+signal,layers,4,0.25,Kang liberal,113,35,0.6902654867256637,0.39,0.30973451327433627,0.4984025559105431
+signal,layers,4,0.25,v1 stability (pi>=0.6),75,2,0.9733333333333334,0.365,0.02666666666666667,0.5309090909090909
+signal,layers,4,0.25,single split strict,4,0,1.0,0.02,0.0,0.0392156862745098
+signal,layers,4,0.25,single split strict no gate,4,0,1.0,0.02,0.0,0.0392156862745098
+signal,layers,4,0.25,single split liberal,9,0,1.0,0.045,0.0,0.0861244019138756
+signal,layers,4,0.25,single split liberal no gate,9,0,1.0,0.045,0.0,0.0861244019138756
+signal,layers,4,0.25,single split liberal_nocore,37,0,1.0,0.185,0.0,0.3122362869198312
+signal,layers,4,0.25,single split liberal_nocore no gate,38,1,0.9736842105263158,0.185,0.02631578947368421,0.31092436974789917
+signal,layers,4,0.25,SplitStab strict,26,0,1.0,0.13,0.0,0.23008849557522126
+signal,layers,4,0.25,SplitStab liberal,32,0,1.0,0.16,0.0,0.2758620689655173
+signal,layers,4,0.25,SplitStab liberal_nocore,53,0,1.0,0.265,0.0,0.41897233201581024
+signal,layers,4,0.25,SplitStab strict no gate,27,0,1.0,0.135,0.0,0.2378854625550661
+signal,layers,4,0.25,SplitStab liberal no gate,32,0,1.0,0.16,0.0,0.2758620689655173
+signal,layers,4,0.25,SplitStab liberal_nocore no gate,58,0,1.0,0.29,0.0,0.44961240310077516
+signal,layers,4,0.25,global intersection (Kang),87,0,1.0,0.435,0.0,0.6062717770034843
+signal,layers,4,0.25,global ACAT full data (v1),134,3,0.9776119402985075,0.655,0.022388059701492536,0.7844311377245509
+signal,layers,4,0.25,global ACAT split + stability (combined),89,0,1.0,0.445,0.0,0.615916955017301
+signal,layers,5,0.25,Kang strict,2,0,1.0,0.01,0.0,0.019801980198019802
+signal,layers,5,0.25,Kang liberal,141,41,0.7092198581560284,0.5,0.2907801418439716,0.5865102639296187
+signal,layers,5,0.25,v1 stability (pi>=0.6),76,0,1.0,0.38,0.0,0.5507246376811594
+signal,layers,5,0.25,single split strict,68,0,1.0,0.34,0.0,0.5074626865671642
+signal,layers,5,0.25,single split strict no gate,74,1,0.9864864864864865,0.365,0.013513513513513514,0.5328467153284672
+signal,layers,5,0.25,single split liberal,71,0,1.0,0.355,0.0,0.5239852398523985
+signal,layers,5,0.25,single split liberal no gate,86,6,0.9302325581395349,0.4,0.06976744186046512,0.5594405594405595
+signal,layers,5,0.25,single split liberal_nocore,79,0,1.0,0.395,0.0,0.5663082437275986
+signal,layers,5,0.25,single split liberal_nocore no gate,99,4,0.9595959595959596,0.475,0.04040404040404041,0.6354515050167224
+signal,layers,5,0.25,SplitStab strict,33,0,1.0,0.165,0.0,0.2832618025751073
+signal,layers,5,0.25,SplitStab liberal,40,0,1.0,0.2,0.0,0.33333333333333337
+signal,layers,5,0.25,SplitStab liberal_nocore,65,0,1.0,0.325,0.0,0.4905660377358491
+signal,layers,5,0.25,SplitStab strict no gate,37,0,1.0,0.185,0.0,0.3122362869198312
+signal,layers,5,0.25,SplitStab liberal no gate,51,0,1.0,0.255,0.0,0.4063745019920319
+signal,layers,5,0.25,SplitStab liberal_nocore no gate,88,0,1.0,0.44,0.0,0.6111111111111112
+signal,layers,5,0.25,global intersection (Kang),99,0,1.0,0.495,0.0,0.6622073578595317
+signal,layers,5,0.25,global ACAT full data (v1),153,5,0.9673202614379085,0.74,0.032679738562091505,0.8385269121813032
+signal,layers,5,0.25,global ACAT split + stability (combined),101,0,1.0,0.505,0.0,0.6710963455149502
+signal,layers,6,0.25,Kang strict,4,0,1.0,0.02,0.0,0.0392156862745098
+signal,layers,6,0.25,Kang liberal,118,44,0.6271186440677966,0.37,0.3728813559322034,0.46540880503144655
+signal,layers,6,0.25,v1 stability (pi>=0.6),75,1,0.9866666666666667,0.37,0.013333333333333334,0.5381818181818181
+signal,layers,6,0.25,single split strict,15,0,1.0,0.075,0.0,0.13953488372093023
+signal,layers,6,0.25,single split strict no gate,17,1,0.9411764705882353,0.08,0.058823529411764705,0.14746543778801843
+signal,layers,6,0.25,single split liberal,18,0,1.0,0.09,0.0,0.16513761467889906
+signal,layers,6,0.25,single split liberal no gate,21,2,0.9047619047619048,0.095,0.09523809523809523,0.1719457013574661
+signal,layers,6,0.25,single split liberal_nocore,53,0,1.0,0.265,0.0,0.41897233201581024
+signal,layers,6,0.25,single split liberal_nocore no gate,57,2,0.9649122807017544,0.275,0.03508771929824561,0.4280155642023347
+signal,layers,6,0.25,SplitStab strict,31,0,1.0,0.155,0.0,0.2683982683982684
+signal,layers,6,0.25,SplitStab liberal,37,0,1.0,0.185,0.0,0.3122362869198312
+signal,layers,6,0.25,SplitStab liberal_nocore,54,0,1.0,0.27,0.0,0.4251968503937008
+signal,layers,6,0.25,SplitStab strict no gate,31,0,1.0,0.155,0.0,0.2683982683982684
+signal,layers,6,0.25,SplitStab liberal no gate,38,0,1.0,0.19,0.0,0.319327731092437
+signal,layers,6,0.25,SplitStab liberal_nocore no gate,57,0,1.0,0.285,0.0,0.44357976653696496
+signal,layers,6,0.25,global intersection (Kang),89,0,1.0,0.445,0.0,0.615916955017301
+signal,layers,6,0.25,global ACAT full data (v1),132,6,0.9545454545454546,0.63,0.045454545454545456,0.7590361445783134
+signal,layers,6,0.25,global ACAT split + stability (combined),94,0,1.0,0.47,0.0,0.6394557823129251
+signal,blobs,4,0.25,Kang strict,7,0,1.0,0.035,0.0,0.0676328502415459
+signal,blobs,4,0.25,Kang liberal,117,18,0.8461538461538461,0.495,0.15384615384615385,0.6246056782334385
+signal,blobs,4,0.25,v1 stability (pi>=0.6),87,0,1.0,0.435,0.0,0.6062717770034843
+signal,blobs,4,0.25,single split strict,69,0,1.0,0.345,0.0,0.5130111524163569
+signal,blobs,4,0.25,single split strict no gate,81,4,0.9506172839506173,0.385,0.04938271604938271,0.5480427046263345
+signal,blobs,4,0.25,single split liberal,75,0,1.0,0.375,0.0,0.5454545454545454
+signal,blobs,4,0.25,single split liberal no gate,90,6,0.9333333333333333,0.42,0.06666666666666667,0.5793103448275863
+signal,blobs,4,0.25,single split liberal_nocore,94,1,0.9893617021276596,0.465,0.010638297872340425,0.6326530612244898
+signal,blobs,4,0.25,single split liberal_nocore no gate,116,10,0.9137931034482759,0.53,0.08620689655172414,0.6708860759493671
+signal,blobs,4,0.25,SplitStab strict,60,0,1.0,0.3,0.0,0.4615384615384615
+signal,blobs,4,0.25,SplitStab liberal,66,0,1.0,0.33,0.0,0.49624060150375937
+signal,blobs,4,0.25,SplitStab liberal_nocore,85,0,1.0,0.425,0.0,0.5964912280701754
+signal,blobs,4,0.25,SplitStab strict no gate,72,0,1.0,0.36,0.0,0.5294117647058824
+signal,blobs,4,0.25,SplitStab liberal no gate,80,0,1.0,0.4,0.0,0.5714285714285715
+signal,blobs,4,0.25,SplitStab liberal_nocore no gate,98,0,1.0,0.49,0.0,0.6577181208053691
+signal,blobs,4,0.25,global intersection (Kang),98,0,1.0,0.49,0.0,0.6577181208053691
+signal,blobs,4,0.25,global ACAT full data (v1),131,5,0.9618320610687023,0.63,0.03816793893129771,0.7613293051359518
+signal,blobs,4,0.25,global ACAT split + stability (combined),99,0,1.0,0.495,0.0,0.6622073578595317
+signal,blobs,5,0.25,Kang strict,7,0,1.0,0.035,0.0,0.0676328502415459
+signal,blobs,5,0.25,Kang liberal,154,42,0.7272727272727273,0.56,0.2727272727272727,0.632768361581921
+signal,blobs,5,0.25,v1 stability (pi>=0.6),96,2,0.9791666666666666,0.47,0.020833333333333332,0.6351351351351351
+signal,blobs,5,0.25,single split strict,113,0,1.0,0.565,0.0,0.7220447284345047
+signal,blobs,5,0.25,single split strict no gate,144,5,0.9652777777777778,0.695,0.034722222222222224,0.8081395348837209
+signal,blobs,5,0.25,single split liberal,116,0,1.0,0.58,0.0,0.7341772151898733
+signal,blobs,5,0.25,single split liberal no gate,165,14,0.9151515151515152,0.755,0.08484848484848485,0.8273972602739726
+signal,blobs,5,0.25,single split liberal_nocore,116,0,1.0,0.58,0.0,0.7341772151898733
+signal,blobs,5,0.25,single split liberal_nocore no gate,163,14,0.9141104294478528,0.745,0.08588957055214724,0.8209366391184573
+signal,blobs,5,0.25,SplitStab strict,107,0,1.0,0.535,0.0,0.6970684039087948
+signal,blobs,5,0.25,SplitStab liberal,108,0,1.0,0.54,0.0,0.7012987012987013
+signal,blobs,5,0.25,SplitStab liberal_nocore,108,0,1.0,0.54,0.0,0.7012987012987013
+signal,blobs,5,0.25,SplitStab strict no gate,132,0,1.0,0.66,0.0,0.7951807228915663
+signal,blobs,5,0.25,SplitStab liberal no gate,143,0,1.0,0.715,0.0,0.8338192419825073
+signal,blobs,5,0.25,SplitStab liberal_nocore no gate,145,0,1.0,0.725,0.0,0.8405797101449275
+signal,blobs,5,0.25,global intersection (Kang),122,0,1.0,0.61,0.0,0.7577639751552795
+signal,blobs,5,0.25,global ACAT full data (v1),159,12,0.9245283018867925,0.735,0.07547169811320754,0.818941504178273
+signal,blobs,5,0.25,global ACAT split + stability (combined),114,0,1.0,0.57,0.0,0.7261146496815287
+signal,blobs,6,0.25,Kang strict,5,0,1.0,0.025,0.0,0.04878048780487806
+signal,blobs,6,0.25,Kang liberal,137,30,0.781021897810219,0.535,0.21897810218978103,0.6350148367952522
+signal,blobs,6,0.25,v1 stability (pi>=0.6),84,0,1.0,0.42,0.0,0.5915492957746479
+signal,blobs,6,0.25,single split strict,90,0,1.0,0.45,0.0,0.6206896551724138
+signal,blobs,6,0.25,single split strict no gate,107,7,0.9345794392523364,0.5,0.06542056074766354,0.6514657980456026
+signal,blobs,6,0.25,single split liberal,94,0,1.0,0.47,0.0,0.6394557823129251
+signal,blobs,6,0.25,single split liberal no gate,121,14,0.8842975206611571,0.535,0.11570247933884298,0.6666666666666667
+signal,blobs,6,0.25,single split liberal_nocore,104,1,0.9903846153846154,0.515,0.009615384615384616,0.6776315789473684
+signal,blobs,6,0.25,single split liberal_nocore no gate,130,12,0.9076923076923077,0.59,0.09230769230769231,0.7151515151515151
+signal,blobs,6,0.25,SplitStab strict,68,0,1.0,0.34,0.0,0.5074626865671642
+signal,blobs,6,0.25,SplitStab liberal,77,0,1.0,0.385,0.0,0.555956678700361
+signal,blobs,6,0.25,SplitStab liberal_nocore,85,0,1.0,0.425,0.0,0.5964912280701754
+signal,blobs,6,0.25,SplitStab strict no gate,80,0,1.0,0.4,0.0,0.5714285714285715
+signal,blobs,6,0.25,SplitStab liberal no gate,89,0,1.0,0.445,0.0,0.615916955017301
+signal,blobs,6,0.25,SplitStab liberal_nocore no gate,107,0,1.0,0.535,0.0,0.6970684039087948
+signal,blobs,6,0.25,global intersection (Kang),108,0,1.0,0.54,0.0,0.7012987012987013
+signal,blobs,6,0.25,global ACAT full data (v1),131,6,0.9541984732824428,0.625,0.04580152671755725,0.755287009063444
+signal,blobs,6,0.25,global ACAT split + stability (combined),100,0,1.0,0.5,0.0,0.6666666666666666

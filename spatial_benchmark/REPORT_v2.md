@@ -1,5 +1,6 @@
-
 # Spatial SVG benchmark v2
+
+> **Superseded:** the combined, final description of the project is [FRAMEWORK.md](FRAMEWORK.md). This file is kept for history.
 
 **Gaps, expanded methods, held-out validation, and a Colab pipeline for real data (DLPFC)**
 

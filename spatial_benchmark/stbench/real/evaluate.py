@@ -82,8 +82,11 @@ def r2_null(ctx, k, methods, B=6, seed=0, log=None):
     r1 = E.pce(W.run_members(c1, k, methods, 2, rng, log=log), c1.coords, k, seed)
     hit, _, _ = test_domains(X2, r1["labels"], r1["confidence"]); out["v2 rule, count split"] = int(hit.any(1).sum())
     out["v2 rule, count split + spatial gate"] = int((hit.any(1) & spatial_gate(X2, null.coords)[0]).sum())
+    out["v1 stability (liberal rule, same data)"] = int(W.v1_stability(null, k, methods, B=B, rng=rng)["selected"].sum())
     ss = W.splitstab(null, k, methods, B=B, rng=rng, log=log)
-    out["SplitStab"] = int(ss["selected"].sum())
+    out["SplitStab strict (v2)"] = int(ss["by_rule"]["strict"]["selected"].sum())
+    out["SplitStab combined (proposed)"] = int(ss["by_rule"]["liberal"]["selected"].sum())
+    out["global ACAT split + stability"] = int(ss["global"]["selected"].sum())
     out["n_genes"] = int(ctx.counts.shape[1])
     T = M.global_svg_tests(null.counts, null.coords)
     out["global ACAT (BH<0.05)"] = int(A.global_reference(T)["acat"].sum())
@@ -126,8 +129,10 @@ def r3_spikein(ctx, k, methods, B=10, seed=0, log=None):
         rows.append(rec)
     called, _ = W.paper_pipeline(sctx, k, methods, rng, strict=True); score("Kang 2025 pipeline (majority + strict SpaGCN rule)", called)
     called, _ = W.paper_pipeline(sctx, k, methods, rng, strict=False); score("majority + liberal rule, same data", called)
+    score("v1 stability (liberal rule, same data)", W.v1_stability(sctx, k, methods, B=B, rng=rng)["selected"])
     ss = W.splitstab(sctx, k, methods, B=B, rng=rng, log=log)
-    score("SplitStab (proposed)", ss["selected"], {"threshold": ss["threshold"]})
+    score("SplitStab strict (v2)", ss["by_rule"]["strict"]["selected"], {"threshold": ss["by_rule"]["strict"]["threshold"]})
+    score("SplitStab combined (proposed)", ss["by_rule"]["liberal"]["selected"], {"threshold": ss["by_rule"]["liberal"]["threshold"]})
     return rows, info, ss
 
 
@@ -153,8 +158,8 @@ def r5_perturb(ctx, k, methods, base_lists, B=6, seed=0, settings=(("depth", 0.5
     rng0 = np.random.default_rng(seed)
     base_lists = dict(base_lists)
     base_lists["Kang 2025 pipeline"] = W.paper_pipeline(ctx, k, methods, rng0, strict=True)[0]
-    base_lists["SplitStab (proposed)"] = W.splitstab(ctx, k, methods, B=B, rng=rng0, log=log)["selected"]
-    for name, sel in [("Kang 2025 pipeline", base_lists["Kang 2025 pipeline"]), ("SplitStab (proposed)", base_lists["SplitStab (proposed)"])]:
+    base_lists["SplitStab combined (proposed)"] = W.splitstab(ctx, k, methods, B=B, rng=rng0, log=log)["selected"]
+    for name, sel in [("Kang 2025 pipeline", base_lists["Kang 2025 pipeline"]), ("SplitStab combined (proposed)", base_lists["SplitStab combined (proposed)"])]:
         rows.append({"axis": "none", "level": 1.0, "approach": name, "n_called": int(sel.sum()), "jaccard_to_unperturbed": 1.0})
     for axis, level in settings:
         rng = np.random.default_rng(seed + int(level * 100))
@@ -171,12 +176,80 @@ def r5_perturb(ctx, k, methods, base_lists, B=6, seed=0, settings=(("depth", 0.5
             rec["ari"] = ari(truth[idx], res["labels"])
         rows.append(rec)
         ss = W.splitstab(p, k, methods, B=B, rng=rng, log=log)
-        rows.append({"axis": axis, "level": level, "approach": "SplitStab (proposed)", "n_called": int(ss["selected"].sum()),
-                     "jaccard_to_unperturbed": A.jaccard(ss["selected"], base_lists["SplitStab (proposed)"])})
+        rows.append({"axis": axis, "level": level, "approach": "SplitStab combined (proposed)", "n_called": int(ss["selected"].sum()),
+                     "jaccard_to_unperturbed": A.jaccard(ss["selected"], base_lists["SplitStab combined (proposed)"])})
         T = M.global_svg_tests(p.counts, p.coords); R = A.global_reference(T)
         for name in ["intersection_rescued", "acat"]:
             rows.append({"axis": axis, "level": level, "approach": f"global {name}", "n_called": int(R[name].sum()),
                          "jaccard_to_unperturbed": A.jaccard(R[name], base_lists[f"global {name}"])})
+    return rows
+
+
+def boundary_distance(coords, labels):
+    """Distance (spot spacings) from each spot to the nearest spot with a different label."""
+    from scipy.spatial import cKDTree
+    d = np.full(len(labels), np.inf)
+    for l in np.unique(labels):
+        other = coords[labels != l]
+        if len(other):
+            d[labels == l] = cKDTree(other).query(coords[labels == l])[0]
+    return d
+
+
+def spot_uncertainty(ctx, labels, confidence, agreement, k, stability=None):
+    """Biological check of spot-level uncertainty on real tissue: is low confidence
+    concentrated at manually annotated layer boundaries (where Visium spots mix
+    cells from two layers), and are confident spots more often right?"""
+    from scipy.stats import spearmanr
+    truth = ctx.extra["labels"]
+    correct = E.align(truth, labels, max(k, truth.max() + 1)) == truth
+    bd = boundary_distance(ctx.coords, truth)
+    rows = {"n_spots": len(truth)}
+    for name, u in [("confidence", confidence), ("replicate_stability", stability), ("replicate_agreement", agreement)]:
+        if u is None:
+            continue
+        ok = np.isfinite(u)
+        rows[f"{name}_mean"] = float(np.nanmean(u))
+        rows[f"{name}_spearman_vs_boundary_distance"] = float(spearmanr(u[ok], bd[ok])[0])
+        rows[f"{name}_at_boundary(<=1.5)"] = float(np.nanmean(u[bd <= 1.5]))
+        rows[f"{name}_interior(>3)"] = float(np.nanmean(u[bd > 3]))
+        hi = ok & (u >= 0.6); lo = ok & (u < 0.6)
+        rows[f"accuracy_{name}>=0.6"] = float(correct[hi].mean()) if hi.any() else np.nan
+        rows[f"accuracy_{name}<0.6"] = float(correct[lo].mean()) if lo.any() else np.nan
+        rows[f"share_{name}>=0.6"] = float(hi.mean())
+    rows["accuracy_overall"] = float(correct.mean())
+    # technical confounder: is low confidence just low sequencing depth?
+    lib = np.log1p(ctx.counts.sum(1))
+    if confidence is not None:
+        rows["confidence_spearman_vs_log_library"] = float(spearmanr(confidence, lib)[0])
+    df = {"x": ctx.coords[:, 0], "y": ctx.coords[:, 1], "truth": truth, "label": labels, "correct": correct,
+          "boundary_distance": bd, "confidence": confidence, "replicate_stability": stability, "replicate_agreement": agreement}
+    return rows, df
+
+
+# Expected layer of well-known DLPFC markers (Maynard et al. 2021 and cortical
+# biology). Used only as a qualitative sanity check of modal-domain assignment.
+EXPECTED_LAYER = {"AQP4": "L1", "GFAP": "L1", "HPCAL1": "L2", "CUX2": "L2/3", "FREM3": "L3", "RORB": "L4",
+                  "PCP4": "L5", "TRABD2A": "L5", "KRT17": "L6", "MOBP": "WM", "MBP": "WM", "PLP1": "WM"}
+
+
+def _layer_key(name):
+    t = "".join(ch for ch in str(name).lower() if ch.isalnum())
+    if "wm" in t or "white" in t:
+        return "WM"
+    digits = "".join(ch for ch in t if ch.isdigit())
+    return f"L{digits}" if digits else str(name)
+
+
+def marker_check(genes, pi, selected, modal_label_names):
+    rows = []
+    up = [str(g).upper() for g in genes]
+    for g, exp in EXPECTED_LAYER.items():
+        if g in up:
+            i = up.index(g)
+            got = _layer_key(modal_label_names[i]) if modal_label_names[i] is not None else None
+            rows.append({"gene": g, "expected_layer": exp, "pi": float(pi[i]), "selected": bool(selected[i]),
+                         "modal_layer": got, "matches": bool(selected[i]) and got is not None and got in exp.replace("L2/3", "L2 L3")})
     return rows
 
 

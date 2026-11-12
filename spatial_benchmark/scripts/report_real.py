@@ -34,7 +34,7 @@ def _load(out, name, kind="csv"):
     frames = []
     for d in sorted(p for p in out.iterdir() if p.is_dir()):
         f = d / name
-        if f.exists():
+        if f.exists() and f.stat().st_size > 1:
             if kind == "csv":
                 df = pd.read_csv(f); df.insert(0, "sample", d.name); frames.append(df)
             else:
@@ -67,7 +67,7 @@ def section_domains(out):
         boots = [rng.choice(diff.values, len(diff)).mean() for _ in range(4000)] if len(diff) > 1 else [diff.mean()]
         stats.update(pce_minus_majority=float(diff.mean()), wins=int((diff > 0).sum()), ci=np.quantile(boots, [0.025, 0.975]).tolist())
         singles = [c for c in order if c not in ENS_ORDER]
-        stats["pce_minus_best_single"] = float((piv["PCE (proposed)"] - piv[singles].max(1)).mean()) if singles else np.nan
+        stats["pce_minus_best_single"] = float((piv["PCE (proposed)"] - piv[singles].max(axis=1)).mean()) if singles else np.nan
     # probability each approach is best (bootstrap over slices)
     rng = np.random.default_rng(1); best = []
     for _ in range(2000):
@@ -134,6 +134,13 @@ the false-call rate is measured on the remaining low-autocorrelation genes, whic
 <p>Sections from the same donor 10 µm apart should share most true SVGs. Higher Jaccard and replication rate mean a more reproducible list
 (no ground truth needed). A list can replicate well by being short, so read this together with list sizes (n_a, n_b).</p>{_table(agg)}
 <details><summary>per pair</summary>{_table(df)}</details>""")
+    r4d = out / "r4_cross_donor.csv"
+    if r4d.exists():
+        df = pd.read_csv(r4d)
+        agg = df.groupby("approach")[["n_a", "n_b", "jaccard", "replication_rate"]].mean().reset_index()
+        parts.append(f"""<h3>4b. Cross-donor replication</h3>
+<p>Same layer, different people. Lower than adjacent-section replication is expected (biological variation between donors);
+this is the level of uncertainty that resampling one slice cannot capture.</p>{_table(agg)}""")
     r5 = _load(out, "r5_perturb.csv")
     if r5 is not None:
         agg = r5.groupby(["axis", "level", "approach"]).mean(numeric_only=True).reset_index()
@@ -145,6 +152,46 @@ the false-call rate is measured on the remaining low-autocorrelation genes, whic
         parts.append(f"""<h2>6. Global SVG references (R6)</h2>
 <p>Number of global SVGs per reference, and the fraction of each list that the intersection reference of Kang et al. also contains.
 Lists much larger than the intersection with high overlap indicate that the intersection discards genes other tests agree on.</p>{_table(agg)}""")
+    return "\n".join(parts)
+
+
+def section_uncertainty(out):
+    summ = _load(out, "uncertainty_spots_summary.json", "json")
+    mk = _load(out, "marker_check.csv")
+    if summ is None:
+        return ""
+    parts = ["""<h2>7. Uncertainty: does it mean something biologically?</h2>
+<p><b>Spots.</b> A 55 µm Visium spot holds roughly 1–10 cells. At a layer boundary it holds cells from both layers, so its
+domain is genuinely ambiguous. If our per-spot uncertainty is biologically meaningful, confidence (agreement among kept methods)
+and replicate stability (how often the spot stays with the same neighbours when the tissue is resampled) should be <em>lower at manually
+annotated boundaries</em> (positive Spearman with distance to boundary) and confident spots should be more often correct.</p>"""]
+    t = summ.set_index("sample").T.rename_axis(None, axis=1).reset_index().rename(columns={"index": "metric"})
+    parts.append(_table(t))
+    for d in sorted(p for p in out.iterdir() if p.is_dir()):
+        f = d / "uncertainty_spots.csv"
+        if f.exists():
+            u = pd.read_csv(f)
+            fig, axes = plt.subplots(1, 3, figsize=(11, 3.4), layout="constrained")
+            axes[0].scatter(u.x, -u.y, c=u.truth, s=3, cmap="tab10"); axes[0].set_title("manual layers")
+            sc = axes[1].scatter(u.x, -u.y, c=u.confidence, s=3, cmap="viridis", vmin=0, vmax=1); axes[1].set_title("PCE confidence")
+            plt.colorbar(sc, ax=axes[1], shrink=0.8)
+            for a in axes[:2]:
+                a.set_xticks([]); a.set_yticks([]); a.set_aspect("equal")
+            bins = [0, 1.5, 3, 5, np.inf]; lab = ["≤1.5", "1.5–3", "3–5", ">5"]
+            g = u.groupby(pd.cut(u.boundary_distance, bins, labels=lab), observed=False)
+            axes[2].plot(lab, g.confidence.mean(), marker="o", label="confidence")
+            if "replicate_stability" in u:
+                axes[2].plot(lab, g.replicate_stability.mean(), marker="s", label="replicate stability")
+            axes[2].plot(lab, g.correct.mean(), marker="^", ls="--", color="k", label="accuracy")
+            axes[2].set_xlabel("distance to manual boundary (spots)"); axes[2].set_ylim(0, 1.02); axes[2].legend(fontsize=7, frameon=False)
+            fig.suptitle(f"Slice {d.name}")
+            parts.append(_img(fig))
+            break
+    if mk is not None and len(mk):
+        parts.append("""<p><b>Genes.</b> Known DLPFC layer markers: their selection probability π and the layer they were assigned to.
+π is the fraction of resampled replicates (new count split, new spot subsample, new method seeds) in which the gene was called
+a domain-specific SVG. It measures <em>reproducibility under technical resampling</em>, not the probability that the gene is
+biologically a marker. Expected layers come from the literature and are only a sanity check.</p>""" + _table(mk))
     return "\n".join(parts)
 
 
@@ -184,10 +231,12 @@ Methods run: {', '.join(methods.get('methods', []))}. SplitStab replicates B = {
 {section_maps(out)}
 {dom_html}
 {section_svgs(out)}
+{section_uncertainty(out)}
 <h2>How to read this report</h2>
 <ul>
 <li><b>PCE</b>: label-free method scores (stability × agreement × spatial coherence) → pre-registered pruning → weighted co-association consensus with per-spot confidence.</li>
-<li><b>SplitStab</b>: domains on one half of each count (count splitting), markers tested on the other half among confident spots, repeated B times with spot subsampling; permuted negative-control genes calibrate the selection-probability threshold to an estimated FDP ≤ 0.1.</li>
+<li><b>SplitStab combined (proposed)</b>: domains on one half of each count (count splitting), markers tested on the other half among confident spots with a depth-aware NB test (liberal per-replicate rule: q &lt; 0.1, rate ratio ≥ 1.2), a spatial gate (ACAT of Moran's I + SPARK-X-like on the held-out half), repeated B times with spot subsampling; synthetic NB negative-control genes calibrate the π threshold to an estimated FDP ≤ 0.1.</li>
+<li><b>SplitStab strict (v2)</b>: the same with the strict per-replicate rule (q &lt; 0.05, rate ratio ≥ 1.5). <b>v1 stability</b>: the pilot method (perturbed replicates, liberal SpaGCN rule, same counts, π ≥ 0.6), kept as an ablation.</li>
 <li><b>Kang 2025 pipeline</b>: one run per method → aligned majority vote → SpaGCN rule (q &lt; 0.05, in-domain fraction ≥ 0.8, fold change ≥ 1.5) on the same counts.</li>
 <li>Gene-level outputs: <code>&lt;sample&gt;/domain_svgs.csv</code> (selection probability π per gene) and <code>global_svgs.csv</code>.</li>
 </ul>"""

@@ -96,3 +96,21 @@ class EnsembleV2Tests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CombinedFrameworkTests(unittest.TestCase):
+    def test_splitstab_returns_all_rules_aligned_and_global(self):
+        from stbench import workflow as W
+        sim = simulate(n_x=30, n_y=24, n_domains=4, n_genes=300, n_domain_genes=60, n_gradient_genes=10, n_state_genes=30, seed=3)
+        ctx = W.Context(sim.counts, sim.coords)
+        M = {m: W.CPU_METHODS[m] for m in ["kmeans_smooth", "gmm_pca"]}
+        ss = W.splitstab(ctx, 4, M, B=2, n_reps=1, rng=np.random.default_rng(0))
+        self.assertEqual(set(ss["by_rule"]), set(W.RULES))
+        self.assertEqual(ss["primary_rule"], "liberal")
+        self.assertEqual(len(ss["spot_agreement"]), len(sim.coords))
+        self.assertTrue(np.nanmax(ss["spot_agreement"]) <= 1.0)
+        self.assertTrue(np.nanmax(ss["spot_stability"]) <= 1.0 + 1e-9)
+        self.assertEqual(ss["global"]["pi"].shape, (300,))
+        # gate can only remove calls
+        for r in W.RULES:
+            self.assertTrue((ss["by_rule"][r]["pi"] <= ss["by_rule_nogate"][r]["pi"] + 1e-12).all())
