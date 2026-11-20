@@ -1,0 +1,36 @@
+{
+ "dataset": "dlpfc",
+ "cpu_methods": [
+  "kmeans_pca",
+  "gmm_pca",
+  "kmeans_smooth",
+  "ward_spatial",
+  "spectral_spatial"
+ ],
+ "gpu_methods": [],
+ "n_reps": 3,
+ "B": 10,
+ "max_genes": 6000,
+ "cache_dir": "data",
+ "experiments": [
+  "R1",
+  "R2",
+  "R3",
+  "R4",
+  "R5",
+  "R6"
+ ],
+ "samples": [
+  "151673",
+  "151674"
+ ],
+ "pairs": [
+  [
+   "151673",
+   "151674"
+  ]
+ ],
+ "out": "results/real_quick",
+ "splitstab_reps": 2,
+ "svg_methods": "cpu_kept"
+}
