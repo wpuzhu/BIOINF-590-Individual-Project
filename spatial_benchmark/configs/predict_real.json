@@ -1,0 +1,50 @@
+[
+  {
+    "id": "dlpfc_151673",
+    "dataset": "DLPFC Visium",
+    "file": "DLPFC_151673.h5ad",
+    "expression": "counts",
+    "top_k": 100,
+    "source": "https://huggingface.co/datasets/prism-oncology/novae/resolve/main/human/brain/DLPFC_151673.h5ad"
+  },
+  {
+    "id": "dlpfc_151674",
+    "dataset": "DLPFC Visium",
+    "file": "DLPFC_151674.h5ad",
+    "expression": "counts",
+    "top_k": 100,
+    "source": "https://huggingface.co/datasets/prism-oncology/novae/resolve/main/human/brain/DLPFC_151674.h5ad"
+  },
+  {
+    "id": "dlpfc_151507",
+    "dataset": "DLPFC Visium",
+    "file": "DLPFC_151507.h5ad",
+    "expression": "counts",
+    "top_k": 100,
+    "source": "https://huggingface.co/datasets/han-shu/st_datasets/resolve/1027c607bd43acd75cefc1b6911286b132483eb0/DLPFC/DLPFC_151507.h5ad"
+  },
+  {
+    "id": "merfish_bregma_m14",
+    "dataset": "Moffitt MERFISH",
+    "file": "merfish.h5ad",
+    "expression": "normalized",
+    "top_k": 10,
+    "subset": {
+      "Animal_ID": 1,
+      "Bregma": -14
+    },
+    "source": "https://ndownloader.figshare.com/files/28169379"
+  },
+  {
+    "id": "merfish_bregma_m19",
+    "dataset": "Moffitt MERFISH",
+    "file": "merfish.h5ad",
+    "expression": "normalized",
+    "top_k": 10,
+    "subset": {
+      "Animal_ID": 1,
+      "Bregma": -19
+    },
+    "source": "https://ndownloader.figshare.com/files/28169379"
+  }
+]

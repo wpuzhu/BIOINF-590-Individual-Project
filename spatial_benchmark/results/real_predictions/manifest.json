@@ -1,0 +1,77 @@
+{
+  "samples": [
+    {
+      "id": "dlpfc_151673",
+      "dataset": "DLPFC Visium",
+      "file": "DLPFC_151673.h5ad",
+      "expression": "counts",
+      "top_k": 100,
+      "source": "https://huggingface.co/datasets/prism-oncology/novae/resolve/main/human/brain/DLPFC_151673.h5ad",
+      "sha256": "5e9763eeb23156ddb92bf376a3a8217832753a8947be1b4b3d303b3c37b0668b",
+      "locations": 3639,
+      "tested_genes": 2000
+    },
+    {
+      "id": "dlpfc_151674",
+      "dataset": "DLPFC Visium",
+      "file": "DLPFC_151674.h5ad",
+      "expression": "counts",
+      "top_k": 100,
+      "source": "https://huggingface.co/datasets/prism-oncology/novae/resolve/main/human/brain/DLPFC_151674.h5ad",
+      "sha256": "51a5ad4e6c405100552b479e0215ee649bf8b3fa6468a46a933b474ed599e5f3",
+      "locations": 3673,
+      "tested_genes": 2000
+    },
+    {
+      "id": "dlpfc_151507",
+      "dataset": "DLPFC Visium",
+      "file": "DLPFC_151507.h5ad",
+      "expression": "counts",
+      "top_k": 100,
+      "source": "https://huggingface.co/datasets/han-shu/st_datasets/resolve/1027c607bd43acd75cefc1b6911286b132483eb0/DLPFC/DLPFC_151507.h5ad",
+      "sha256": "b6126703d219af09a0102696505f7cbe7fc02545a2e082d220ce6669bc6cb688",
+      "locations": 4226,
+      "tested_genes": 2000
+    },
+    {
+      "id": "merfish_bregma_m14",
+      "dataset": "Moffitt MERFISH",
+      "file": "merfish.h5ad",
+      "expression": "normalized",
+      "top_k": 10,
+      "subset": {
+        "Animal_ID": 1,
+        "Bregma": -14
+      },
+      "source": "https://ndownloader.figshare.com/files/28169379",
+      "sha256": "371723d48413ba76aba49ccf7ea24867b1db940529216fe2902484f5c2a48904",
+      "locations": 6605,
+      "tested_genes": 160
+    },
+    {
+      "id": "merfish_bregma_m19",
+      "dataset": "Moffitt MERFISH",
+      "file": "merfish.h5ad",
+      "expression": "normalized",
+      "top_k": 10,
+      "subset": {
+        "Animal_ID": 1,
+        "Bregma": -19
+      },
+      "source": "https://ndownloader.figshare.com/files/28169379",
+      "sha256": "371723d48413ba76aba49ccf7ea24867b1db940529216fe2902484f5c2a48904",
+      "locations": 6507,
+      "tested_genes": 160
+    }
+  ],
+  "seed": 590,
+  "spot_subsamples": 20,
+  "location_fraction": 0.8,
+  "versions": {
+    "anndata": "0.13.4",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  }
+}
