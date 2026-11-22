@@ -61,9 +61,16 @@ def load_section(entry, data_dir):
         x = np.log1p(x * (1e4 / depth[keep])[:, None])
     elif entry["expression"] == "normalized":
         x = np.log1p(x)
-    else:
+    elif entry["expression"] != "log_normalized":
         raise ValueError(f"Unknown expression representation in {path}")
-    metadata = {**entry, "sha256": checksum, "locations": len(x), "tested_genes": len(eligible)}
+    available_locations = len(x)
+    if entry.get("max_locations", available_locations) < available_locations:
+        subset = np.sort(np.random.default_rng(SEED).choice(
+            available_locations, entry["max_locations"], replace=False
+        ))
+        x, coordinates = x[subset], coordinates[subset]
+    metadata = {**entry, "sha256": checksum, "locations": len(x), "available_locations": available_locations,
+                "tested_genes": len(eligible)}
     genes = pd.DataFrame({"gene_id": ids[eligible], "gene": data.var_names[eligible],
                           "detection_fraction": detection[eligible]})
     return x, coordinates, genes, metadata

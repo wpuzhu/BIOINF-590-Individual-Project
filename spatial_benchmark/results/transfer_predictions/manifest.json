@@ -1,0 +1,52 @@
+{
+  "samples": [
+    {
+      "id": "dlpfc_151675",
+      "dataset": "DLPFC Visium",
+      "file": "DLPFC_151675.h5ad",
+      "expression": "counts",
+      "top_k": 100,
+      "source": "https://huggingface.co/datasets/prism-oncology/novae/resolve/main/human/brain/DLPFC_151675.h5ad",
+      "sha256": "9d12892afd84b83e45887ea88151b6e0968c75d5ee03bbe41dd49c1c5fd68dbb",
+      "locations": 3592,
+      "available_locations": 3592,
+      "tested_genes": 2000
+    },
+    {
+      "id": "seqfish_mouse_embryo",
+      "dataset": "Lohoff seqFISH",
+      "file": "seqfish.h5ad",
+      "expression": "counts",
+      "top_k": 20,
+      "max_locations": 8000,
+      "source": "https://ndownloader.figshare.com/files/26098403",
+      "sha256": "7e544c0ede7538067537da69c52748ad01522ef7fc8691e077fd73c9434019f7",
+      "locations": 8000,
+      "available_locations": 19416,
+      "tested_genes": 351
+    },
+    {
+      "id": "slideseqv2_mouse_hippocampus",
+      "dataset": "Stickels Slide-seqV2",
+      "file": "slideseqv2.h5ad",
+      "expression": "log_normalized",
+      "top_k": 100,
+      "max_locations": 8000,
+      "source": "https://ndownloader.figshare.com/files/28242783",
+      "sha256": "224a0f2b3d4f6c0ac1583c93bb6bfa910a986df82302c4a927d61883b8b63d8b",
+      "locations": 8000,
+      "available_locations": 41786,
+      "tested_genes": 604
+    }
+  ],
+  "seed": 590,
+  "spot_subsamples": 20,
+  "location_fraction": 0.8,
+  "versions": {
+    "anndata": "0.13.4",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  }
+}

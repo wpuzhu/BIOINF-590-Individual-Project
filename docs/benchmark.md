@@ -1,5 +1,7 @@
 # Methods and benchmark protocol
 
+See the [novelty audit](novelty.md) for the revised two-route calibration proposal and the [real-data ablation](../spatial_benchmark/results/transfer_predictions/README.md) for evidence on the current fixed blend.
+
 ## Primary study | Overall SVGs
 
 **Estimand.** Within a section, test whether the gene's expression distribution depends on location after accounting for specified technical exposures such as library size. Composition-driven biology counts as signal here. Restrict the primary score to a frozen section-specific, detectability-filtered gene universe. Save IDs, detection fractions and all method-specific failures. Use each caller's recommended count or normalized inputs, with a harmonized preprocessing sensitivity analysis. Compare rankings on a common eligible universe and report coverage on the full eligible universe. Apply the same inclusion and screening rules in null runs.

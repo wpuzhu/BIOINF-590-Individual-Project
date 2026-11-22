@@ -1,0 +1,28 @@
+[
+  {
+    "id": "dlpfc_151675",
+    "dataset": "DLPFC Visium",
+    "file": "DLPFC_151675.h5ad",
+    "expression": "counts",
+    "top_k": 100,
+    "source": "https://huggingface.co/datasets/prism-oncology/novae/resolve/main/human/brain/DLPFC_151675.h5ad"
+  },
+  {
+    "id": "seqfish_mouse_embryo",
+    "dataset": "Lohoff seqFISH",
+    "file": "seqfish.h5ad",
+    "expression": "counts",
+    "top_k": 20,
+    "max_locations": 8000,
+    "source": "https://ndownloader.figshare.com/files/26098403"
+  },
+  {
+    "id": "slideseqv2_mouse_hippocampus",
+    "dataset": "Stickels Slide-seqV2",
+    "file": "slideseqv2.h5ad",
+    "expression": "log_normalized",
+    "top_k": 100,
+    "max_locations": 8000,
+    "source": "https://ndownloader.figshare.com/files/28242783"
+  }
+]
